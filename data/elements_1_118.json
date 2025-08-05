@@ -1,0 +1,2428 @@
+{
+  "H": {
+    "name": "Hydrogen",
+    "atomic_number": 1,
+    "atomic_mass": 1.008,
+    "electron_config": "1s1",
+    "oxidation_states": [-1, 1],
+    "melting_point": 14.01,
+    "boiling_point": 20.28,
+    "density": 0.00008988,
+    "electronegativity": 2.20,
+    "abundance_earth": "0.14%",
+    "abundance_universe": "75%",
+    "discovery_year": 1766,
+    "discoverer": "Henry Cavendish",
+    "applications": [
+      "Fuel cells",
+      "Rocket fuel",
+      "Industrial processes"
+    ],
+    "isotopes": {
+      "H-1": {"abundance": "99.985%", "half_life": "stable"},
+      "H-2": {"abundance": "0.015%", "half_life": "stable"},
+      "H-3": {"abundance": "trace", "half_life": "12.32 years"}
+    },
+    "health_data": {
+      "risks": ["Flammable", "Explosive when mixed with air"],
+      "safety_measures": ["Proper ventilation", "Explosion-proof equipment"]
+    }
+  },
+  "He": {
+    "name": "Helium",
+    "atomic_number": 2,
+    "atomic_mass": 4.002602,
+    "electron_config": "1s2",
+    "oxidation_states": [0],
+    "melting_point": 0.95,
+    "boiling_point": 4.22,
+    "density": 0.0001785,
+    "electronegativity": null,
+    "abundance_earth": "0.00052%",
+    "abundance_universe": "23%",
+    "discovery_year": 1895,
+    "discoverer": "Sir William Ramsay",
+    "applications": [
+      "Cryogenics",
+      "Welding",
+      "Balloons"
+    ],
+    "isotopes": {
+      "He-3": {"abundance": "0.000137%", "half_life": "stable"},
+      "He-4": {"abundance": "99.999863%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Asphyxiant at high concentrations"],
+      "safety_measures": ["Use in well-ventilated areas"]
+    }
+  },
+  "Li": {
+    "name": "Lithium",
+    "atomic_number": 3,
+    "atomic_mass": 6.94,
+    "electron_config": "1s2 2s1",
+    "oxidation_states": [1],
+    "melting_point": 453.65,
+    "boiling_point": 1603,
+    "density": 0.534,
+    "electronegativity": 0.98,
+    "abundance_earth": "0.0017%",
+    "abundance_universe": "0.0000006%",
+    "discovery_year": 1817,
+    "discoverer": "Johan August Arfwedson",
+    "applications": [
+      "Batteries",
+      "Psychiatric medications",
+      "Nuclear fusion"
+    ],
+    "isotopes": {
+      "Li-6": {"abundance": "7.59%", "half_life": "stable"},
+      "Li-7": {"abundance": "92.41%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Highly reactive with water", "Corrosive"],
+      "safety_measures": ["Store under mineral oil", "Avoid water contact"]
+    }
+  },
+  "Be": {
+    "name": "Beryllium",
+    "atomic_number": 4,
+    "atomic_mass": 9.0121831,
+    "electron_config": "1s2 2s2",
+    "oxidation_states": [2],
+    "melting_point": 1560,
+    "boiling_point": 2742,
+    "density": 1.85,
+    "electronegativity": 1.57,
+    "abundance_earth": "0.00019%",
+    "abundance_universe": "0.0000001%",
+    "discovery_year": 1797,
+    "discoverer": "Louis Nicolas Vauquelin",
+    "applications": [
+      "Aerospace components",
+      "X-ray windows",
+      "Nuclear reactors"
+    ],
+    "isotopes": {
+      "Be-9": {"abundance": "100%", "half_life": "stable"},
+      "Be-10": {"abundance": "trace", "half_life": "1.51 million years"}
+    },
+    "health_data": {
+      "risks": ["Toxic if inhaled", "Carcinogenic"],
+      "safety_measures": ["Use protective equipment", "Controlled handling"]
+    }
+  },
+  "B": {
+    "name": "Boron",
+    "atomic_number": 5,
+    "atomic_mass": 10.811,
+    "electron_config": "1s2 2s2 2p1",
+    "oxidation_states": [3],
+    "melting_point": 2349,
+    "boiling_point": 4200,
+    "density": 2.34,
+    "electronegativity": 2.04,
+    "abundance_earth": "0.00086%",
+    "abundance_universe": "0.0000001%",
+    "discovery_year": 1808,
+    "discoverer": "Joseph Louis Gay-Lussac",
+    "applications": [
+      "Fiberglass",
+      "Semiconductors",
+      "Neutron absorption"
+    ],
+    "isotopes": {
+      "B-10": {"abundance": "19.9%", "half_life": "stable"},
+      "B-11": {"abundance": "80.1%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Irritant to eyes and respiratory system"],
+      "safety_measures": ["Dust control", "Eye protection"]
+    }
+  },
+  "C": {
+    "name": "Carbon",
+    "atomic_number": 6,
+    "atomic_mass": 12.0107,
+    "electron_config": "1s2 2s2 2p2",
+    "oxidation_states": [-4, -3, -2, -1, 0, 1, 2, 3, 4],
+    "melting_point": 3823,
+    "boiling_point": 4300,
+    "density": 2.267,
+    "electronegativity": 2.55,
+    "abundance_earth": "0.18%",
+    "abundance_universe": "0.5%",
+    "discovery_year": "Prehistoric",
+    "discoverer": "Known to ancients",
+    "applications": ["Life forms", "Diamonds", "Graphite", "Nanotubes"],
+    "isotopes": {
+      "C-12": {"abundance": "98.93%", "half_life": "stable"},
+      "C-13": {"abundance": "1.07%", "half_life": "stable"},
+      "C-14": {"abundance": "trace", "half_life": "5,730 years"}
+    },
+    "health_data": {
+      "risks": ["CO2 asphyxiation", "Carbon dust explosions", "Graphite lung"],
+      "safety_measures": ["Ventilation", "Dust control", "Respiratory protection"]
+    }
+  },
+  "N": {
+    "name": "Nitrogen",
+    "atomic_number": 7,
+    "electron_config": "1s2 2s2 2p3",
+    "oxidation_states": [-3, -2, -1, 1, 2, 3, 4, 5],
+    "melting_point": 63.15,
+    "boiling_point": 77.36,
+    "density": 0.001251,
+    "electronegativity": 3.04,
+    "health_data": {
+      "risks": ["Asphyxiant", "Cryogenic burns", "High pressure hazards"],
+      "safety_measures": ["Oxygen monitors", "Cryogenic PPE", "Pressure relief valves"]
+    }
+  },
+  "O": {
+    "name": "Oxygen",
+    "atomic_number": 8,
+    "electron_config": "1s2 2s2 2p4",
+    "oxidation_states": [-2, -1, 1, 2],
+    "melting_point": 54.36,
+    "boiling_point": 90.20,
+    "density": 0.001429,
+    "electronegativity": 3.44,
+    "health_data": {
+      "risks": ["Supports combustion", "High pressure hazards", "Enrichment dangers"],
+      "safety_measures": ["No oils/greases", "Proper regulators", "Fire prevention"]
+    }
+  },
+  "F": {
+    "name": "Fluorine",
+    "atomic_number": 9,
+    "atomic_mass": 18.998403163,
+    "electron_config": "1s2 2s2 2p5",
+    "oxidation_states": [-1],
+    "melting_point": 53.53,
+    "boiling_point": 85.03,
+    "density": 0.001696,
+    "electronegativity": 3.98,
+    "abundance_earth": "0.054%",
+    "abundance_universe": "0.00004%",
+    "discovery_year": 1886,
+    "discoverer": "Henri Moissan",
+    "applications": [
+      "Water fluoridation",
+      "Toothpaste",
+      "Uranium processing",
+      "Refrigerants"
+    ],
+    "isotopes": {
+      "F-19": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Extremely corrosive", "Highly toxic", "Severe chemical burns"],
+      "safety_measures": ["Specialized containment", "Full PPE", "Emergency protocols"]
+    }
+  },
+  "Ne": {
+    "name": "Neon",
+    "atomic_number": 10,
+    "atomic_mass": 20.1797,
+    "electron_config": "1s2 2s2 2p6",
+    "oxidation_states": [0],
+    "melting_point": 24.56,
+    "boiling_point": 27.07,
+    "density": 0.0008999,
+    "electronegativity": null,
+    "abundance_earth": "0.0018%",
+    "abundance_universe": "0.13%",
+    "discovery_year": 1898,
+    "discoverer": "William Ramsay and Morris Travers",
+    "applications": [
+      "Neon signs",
+      "Lasers",
+      "Cryogenic refrigeration"
+    ],
+    "isotopes": {
+      "Ne-20": {"abundance": "90.48%", "half_life": "stable"},
+      "Ne-22": {"abundance": "9.52%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Asphyxiant at high concentrations", "Cryogenic hazards"],
+      "safety_measures": ["Ventilation", "Cryogenic handling procedures"]
+    }
+  },
+  "Na": {
+    "name": "Sodium",
+    "atomic_number": 11,
+    "atomic_mass": 22.98976928,
+    "electron_config": "1s2 2s2 2p6 3s1",
+    "oxidation_states": [-1, 1],
+    "melting_point": 370.87,
+    "boiling_point": 1156,
+    "density": 0.971,
+    "electronegativity": 0.93,
+    "abundance_earth": "2.27%",
+    "abundance_universe": "0.002%",
+    "discovery_year": 1807,
+    "discoverer": "Humphry Davy",
+    "applications": [
+      "Street lights",
+      "Table salt",
+      "Chemical manufacturing",
+      "Heat transfer"
+    ],
+    "isotopes": {
+      "Na-23": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Violent reaction with water", "Burns", "Explosive with air"],
+      "safety_measures": ["Store under mineral oil", "Keep away from water", "Fire safety protocols"]
+    }
+  },
+  "Mg": {
+    "name": "Magnesium",
+    "atomic_number": 12,
+    "atomic_mass": 24.305,
+    "electron_config": "1s2 2s2 2p6 3s2",
+    "oxidation_states": [1, 2],
+    "melting_point": 923,
+    "boiling_point": 1363,
+    "density": 1.738,
+    "electronegativity": 1.31,
+    "abundance_earth": "2.76%",
+    "abundance_universe": "0.06%",
+    "discovery_year": 1755,
+    "discoverer": "Joseph Black",
+    "applications": [
+      "Lightweight alloys",
+      "Pyrotechnics",
+      "Photographic flash bulbs",
+      "Supplements"
+    ],
+    "isotopes": {
+      "Mg-24": {"abundance": "78.99%", "half_life": "stable"},
+      "Mg-25": {"abundance": "10.00%", "half_life": "stable"},
+      "Mg-26": {"abundance": "11.01%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Flammable powder", "Reacts with acids", "Burns with intense light"],
+      "safety_measures": ["Keep dry", "Fire safety measures", "Eye protection"]
+    }
+  },
+  "Al": {
+    "name": "Aluminum",
+    "atomic_number": 13,
+    "atomic_mass": 26.9815385,
+    "electron_config": "1s2 2s2 2p6 3s2 3p1",
+    "oxidation_states": [3],
+    "melting_point": 933.47,
+    "boiling_point": 2792,
+    "density": 2.70,
+    "electronegativity": 1.61,
+    "abundance_earth": "8.1%",
+    "abundance_universe": "0.005%",
+    "discovery_year": 1825,
+    "discoverer": "Hans Christian Ørsted",
+    "applications": [
+      "Aircraft construction",
+      "Packaging",
+      "Building materials",
+      "Electronics"
+    ],
+    "isotopes": {
+      "Al-27": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Powder explosion hazard", "Neurotoxicity concerns", "Dust inhalation"],
+      "safety_measures": ["Dust control", "Ventilation", "Proper grounding"]
+    }
+  },
+  "Si": {
+    "name": "Silicon",
+    "atomic_number": 14,
+    "atomic_mass": 28.085,
+    "electron_config": "1s2 2s2 2p6 3s2 3p2",
+    "oxidation_states": [-4, -3, -2, -1, 1, 2, 3, 4],
+    "melting_point": 1687,
+    "boiling_point": 3538,
+    "density": 2.329,
+    "electronegativity": 1.90,
+    "abundance_earth": "27.7%",
+    "abundance_universe": "0.07%",
+    "discovery_year": 1824,
+    "discoverer": "Jöns Jacob Berzelius",
+    "applications": [
+      "Semiconductors",
+      "Solar cells",
+      "Glass manufacturing",
+      "Computer chips"
+    ],
+    "isotopes": {
+      "Si-28": {"abundance": "92.23%", "half_life": "stable"},
+      "Si-29": {"abundance": "4.67%", "half_life": "stable"},
+      "Si-30": {"abundance": "3.10%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Dust irritation", "Silicosis from chronic exposure"],
+      "safety_measures": ["Dust masks", "Local exhaust ventilation", "Regular monitoring"]
+    }
+  },
+  "P": {
+    "name": "Phosphorus",
+    "atomic_number": 15,
+    "atomic_mass": 30.973761998,
+    "electron_config": "1s2 2s2 2p6 3s2 3p3",
+    "oxidation_states": [-3, -2, -1, 1, 2, 3, 4, 5],
+    "melting_point": 317.3,
+    "boiling_point": 553.7,
+    "density": 1.823,
+    "electronegativity": 2.19,
+    "abundance_earth": "0.099%",
+    "abundance_universe": "0.0007%",
+    "discovery_year": 1669,
+    "discoverer": "Hennig Brand",
+    "applications": [
+      "Fertilizers",
+      "Detergents",
+      "Matches",
+      "Nerve agents"
+    ],
+    "isotopes": {
+      "P-31": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Spontaneous combustion", "Severe burns", "Toxic fumes"],
+      "safety_measures": ["Store under water/oil", "Fire safety protocols", "Chemical hood use"]
+    }
+  },
+  "S": {
+    "name": "Sulfur",
+    "atomic_number": 16,
+    "atomic_mass": 32.06,
+    "electron_config": "1s2 2s2 2p6 3s2 3p4",
+    "oxidation_states": [-2, -1, 1, 2, 3, 4, 5, 6],
+    "melting_point": 388.36,
+    "boiling_point": 717.87,
+    "density": 2.07,
+    "electronegativity": 2.58,
+    "abundance_earth": "0.042%",
+    "abundance_universe": "0.05%",
+    "discovery_year": "Prehistoric",
+    "discoverer": "Known to ancients",
+    "applications": [
+      "Sulfuric acid production",
+      "Rubber vulcanization",
+      "Gunpowder",
+      "Fungicides"
+    ],
+    "isotopes": {
+      "S-32": {"abundance": "94.99%", "half_life": "stable"},
+      "S-34": {"abundance": "4.25%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Toxic gas formation", "Respiratory irritant", "Acid burns"],
+      "safety_measures": ["Ventilation", "Acid-resistant PPE", "Gas monitors"]
+    }
+  },
+  "Cl": {
+    "name": "Chlorine",
+    "atomic_number": 17,
+    "atomic_mass": 35.45,
+    "electron_config": "1s2 2s2 2p6 3s2 3p5",
+    "oxidation_states": [-1, 1, 3, 5, 7],
+    "melting_point": 171.6,
+    "boiling_point": 239.11,
+    "density": 0.003214,
+    "electronegativity": 3.16,
+    "abundance_earth": "0.017%",
+    "abundance_universe": "0.0001%",
+    "discovery_year": 1774,
+    "discoverer": "Carl Wilhelm Scheele",
+    "applications": [
+      "Water treatment",
+      "PVC production",
+      "Disinfectants",
+      "Chemical warfare"
+    ],
+    "isotopes": {
+      "Cl-35": {"abundance": "75.77%", "half_life": "stable"},
+      "Cl-37": {"abundance": "24.23%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Highly toxic gas", "Chemical burns", "Respiratory damage"],
+      "safety_measures": ["Gas masks", "Chemical suits", "Emergency protocols"]
+    }
+  },
+  "Ar": {
+    "name": "Argon",
+    "atomic_number": 18,
+    "atomic_mass": 39.948,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6",
+    "oxidation_states": [0],
+    "melting_point": 83.80,
+    "boiling_point": 87.30,
+    "density": 0.001784,
+    "electronegativity": null,
+    "abundance_earth": "0.00093%",
+    "abundance_universe": "0.02%",
+    "discovery_year": 1894,
+    "discoverer": "Lord Rayleigh and William Ramsay",
+    "applications": [
+      "Welding shielding",
+      "Light bulbs",
+      "Laser technology",
+      "Window insulation"
+    ],
+    "isotopes": {
+      "Ar-40": {"abundance": "99.6%", "half_life": "stable"},
+      "Ar-36": {"abundance": "0.34%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Asphyxiation hazard", "Cryogenic burns"],
+      "safety_measures": ["Ventilation", "Oxygen monitors", "Cryogenic handling"]
+    }
+  },
+  "K": {
+    "name": "Potassium",
+    "atomic_number": 19,
+    "atomic_mass": 39.0983,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s1",
+    "oxidation_states": [1],
+    "melting_point": 336.53,
+    "boiling_point": 1032,
+    "density": 0.862,
+    "electronegativity": 0.82,
+    "abundance_earth": "1.5%",
+    "abundance_universe": "0.0003%",
+    "discovery_year": 1807,
+    "discoverer": "Humphry Davy",
+    "applications": [
+      "Fertilizers",
+      "Food supplements",
+      "Nerve function",
+      "Pyrotechnics"
+    ],
+    "isotopes": {
+      "K-39": {"abundance": "93.3%", "half_life": "stable"},
+      "K-40": {"abundance": "0.012%", "half_life": "1.25 billion years"}
+    },
+    "health_data": {
+      "risks": ["Violent water reaction", "Spontaneous combustion", "Caustic burns"],
+      "safety_measures": ["Store under oil", "Water-free environment", "Fire safety"]
+    }
+  },
+  "Ca": {
+    "name": "Calcium",
+    "atomic_number": 20,
+    "atomic_mass": 40.078,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2",
+    "oxidation_states": [2],
+    "melting_point": 1115,
+    "boiling_point": 1757,
+    "density": 1.54,
+    "electronegativity": 1.00,
+    "abundance_earth": "3.6%",
+    "abundance_universe": "0.007%",
+    "discovery_year": 1808,
+    "discoverer": "Humphry Davy",
+    "applications": [
+      "Bone structure",
+      "Cement production",
+      "Steel making",
+      "Chemical reduction"
+    ],
+    "isotopes": {
+      "Ca-40": {"abundance": "96.94%", "half_life": "stable"},
+      "Ca-44": {"abundance": "2.09%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Reacts with water", "Eye/skin irritation", "Dust hazards"],
+      "safety_measures": ["Moisture control", "Dust protection", "Eye protection"]
+    }
+  },
+  "Sc": {
+    "name": "Scandium",
+    "atomic_number": 21,
+    "atomic_mass": 44.955908,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d1",
+    "oxidation_states": [3],
+    "melting_point": 1814,
+    "boiling_point": 3109,
+    "density": 2.989,
+    "electronegativity": 1.36,
+    "abundance_earth": "0.0022%",
+    "abundance_universe": "0.000003%",
+    "discovery_year": 1879,
+    "discoverer": "Lars Fredrik Nilson",
+    "applications": [
+      "Aerospace alloys",
+      "High-intensity lamps",
+      "Electronics",
+      "Sports equipment"
+    ],
+    "isotopes": {
+      "Sc-45": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Moderate toxicity", "Dust irritation", "Fire risk in powder form"],
+      "safety_measures": ["Ventilation", "Dust protection", "Fire prevention"]
+    }
+  },
+  "Ti": {
+    "name": "Titanium",
+    "atomic_number": 22,
+    "atomic_mass": 47.867,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d2",
+    "oxidation_states": [-2, -1, 0, 2, 3, 4],
+    "melting_point": 1941,
+    "boiling_point": 3560,
+    "density": 4.54,
+    "electronegativity": 1.54,
+    "abundance_earth": "0.56%",
+    "abundance_universe": "0.0003%",
+    "discovery_year": 1791,
+    "discoverer": "William Gregor",
+    "applications": [
+      "Aerospace",
+      "Medical implants",
+      "White paint pigment",
+      "Corrosion-resistant equipment"
+    ],
+    "isotopes": {
+      "Ti-48": {"abundance": "73.72%", "half_life": "stable"},
+      "Ti-46": {"abundance": "8.25%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Powder fire hazard", "Dust explosion risk", "Respiratory irritant"],
+      "safety_measures": ["Dust control", "Fire prevention", "Respiratory protection"]
+    }
+  },
+  "V": {
+    "name": "Vanadium",
+    "atomic_number": 23,
+    "atomic_mass": 50.9415,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d3",
+    "oxidation_states": [-3, -1, 0, 1, 2, 3, 4, 5],
+    "melting_point": 2183,
+    "boiling_point": 3680,
+    "density": 6.11,
+    "electronegativity": 1.63,
+    "abundance_earth": "0.019%",
+    "abundance_universe": "0.0001%",
+    "discovery_year": 1801,
+    "discoverer": "Andrés Manuel del Río",
+    "applications": [
+      "Steel additives",
+      "Catalysts",
+      "Flow batteries",
+      "Nuclear applications"
+    ],
+    "isotopes": {
+      "V-51": {"abundance": "99.75%", "half_life": "stable"},
+      "V-50": {"abundance": "0.25%", "half_life": "1.5×10^17 years"}
+    },
+    "health_data": {
+      "risks": ["Toxic compounds", "Respiratory issues", "Skin irritation"],
+      "safety_measures": ["Local exhaust", "Chemical resistant PPE", "Exposure monitoring"]
+    }
+  },
+  "Cr": {
+    "name": "Chromium",
+    "atomic_number": 24,
+    "atomic_mass": 51.9961,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s1 3d5",
+    "oxidation_states": [-4, -2, -1, 0, 1, 2, 3, 4, 5, 6],
+    "melting_point": 2180,
+    "boiling_point": 2944,
+    "density": 7.15,
+    "electronegativity": 1.66,
+    "abundance_earth": "0.014%",
+    "abundance_universe": "0.0015%",
+    "discovery_year": 1797,
+    "discoverer": "Louis Nicolas Vauquelin",
+    "applications": [
+      "Stainless steel",
+      "Chrome plating",
+      "Dyes and pigments",
+      "Leather tanning"
+    ],
+    "isotopes": {
+      "Cr-52": {"abundance": "83.79%", "half_life": "stable"},
+      "Cr-53": {"abundance": "9.50%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Carcinogenic compounds", "Skin sensitization", "Respiratory issues"],
+      "safety_measures": ["Local ventilation", "Chemical resistant gloves", "Exposure limits"]
+    }
+  },
+  "Mn": {
+    "name": "Manganese",
+    "atomic_number": 25,
+    "atomic_mass": 54.938044,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d5",
+    "oxidation_states": [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7],
+    "melting_point": 1519,
+    "boiling_point": 2334,
+    "density": 7.21,
+    "electronegativity": 1.55,
+    "abundance_earth": "0.11%",
+    "abundance_universe": "0.0008%",
+    "discovery_year": 1774,
+    "discoverer": "Carl Wilhelm Scheele",
+    "applications": [
+      "Steel production",
+      "Batteries",
+      "Fertilizers",
+      "Water treatment"
+    ],
+    "isotopes": {
+      "Mn-55": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Neurotoxicity", "Metal fume fever", "Dust explosion"],
+      "safety_measures": ["Dust control", "Respiratory protection", "Exposure monitoring"]
+    }
+  },
+  "Fe": {
+    "name": "Iron",
+    "atomic_number": 26,
+    "atomic_mass": 55.845,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d6",
+    "oxidation_states": [-4, -2, -1, 0, 1, 2, 3, 4, 5, 6],
+    "melting_point": 1811,
+    "boiling_point": 3134,
+    "density": 7.874,
+    "electronegativity": 1.83,
+    "abundance_earth": "5.63%",
+    "abundance_universe": "0.11%",
+    "discovery_year": "Prehistoric",
+    "discoverer": "Known to ancients",
+    "applications": [
+      "Steel production",
+      "Construction",
+      "Magnetic materials",
+      "Hemoglobin"
+    ],
+    "isotopes": {
+      "Fe-56": {"abundance": "91.75%", "half_life": "stable"},
+      "Fe-54": {"abundance": "5.85%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Metal fume fever", "Dust explosion", "Rust hazards"],
+      "safety_measures": ["Ventilation", "Spark prevention", "Respiratory protection"]
+    }
+  },
+  "Co": {
+    "name": "Cobalt",
+    "atomic_number": 27,
+    "atomic_mass": 58.933194,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d7",
+    "oxidation_states": [-1, 0, 1, 2, 3, 4, 5],
+    "melting_point": 1768,
+    "boiling_point": 3200,
+    "density": 8.86,
+    "electronegativity": 1.88,
+    "abundance_earth": "0.003%",
+    "abundance_universe": "0.0003%",
+    "discovery_year": 1735,
+    "discoverer": "Georg Brandt",
+    "applications": [
+      "Magnets",
+      "Batteries",
+      "Blue pigments",
+      "High-strength alloys"
+    ],
+    "isotopes": {
+      "Co-59": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Carcinogenic", "Radioactive isotopes", "Dust toxicity"],
+      "safety_measures": ["Containment", "Radiation monitoring", "PPE"]
+    }
+  },
+  "Ni": {
+    "name": "Nickel",
+    "atomic_number": 28,
+    "atomic_mass": 58.6934,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d8",
+    "oxidation_states": [-1, 0, 1, 2, 3, 4],
+    "melting_point": 1728,
+    "boiling_point": 3186,
+    "density": 8.912,
+    "electronegativity": 1.91,
+    "abundance_earth": "0.0084%",
+    "abundance_universe": "0.006%",
+    "discovery_year": 1751,
+    "discoverer": "Axel Fredrik Cronstedt",
+    "applications": [
+      "Stainless steel",
+      "Batteries",
+      "Coins",
+      "Electroplating"
+    ],
+    "isotopes": {
+      "Ni-58": {"abundance": "68.27%", "half_life": "stable"},
+      "Ni-60": {"abundance": "26.10%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Skin allergies", "Carcinogenic compounds", "Metal fume fever"],
+      "safety_measures": ["Ventilation", "Skin protection", "Exposure monitoring"]
+    }
+  },
+  "Cu": {
+    "name": "Copper",
+    "atomic_number": 29,
+    "atomic_mass": 63.546,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s1 3d10",
+    "oxidation_states": [-2, 0, 1, 2, 3, 4],
+    "melting_point": 1357.77,
+    "boiling_point": 2835,
+    "density": 8.96,
+    "electronegativity": 1.90,
+    "abundance_earth": "0.0068%",
+    "abundance_universe": "0.000006%",
+    "discovery_year": "Prehistoric",
+    "discoverer": "Known to ancients",
+    "applications": [
+      "Electrical wiring",
+      "Plumbing",
+      "Electronics",
+      "Architecture"
+    ],
+    "isotopes": {
+      "Cu-63": {"abundance": "69.17%", "half_life": "stable"},
+      "Cu-65": {"abundance": "30.83%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Metal fume fever", "Gastrointestinal irritation", "Environmental toxicity"],
+      "safety_measures": ["Ventilation", "Protective equipment", "Proper disposal"]
+    }
+  },
+  "Zn": {
+    "name": "Zinc",
+    "atomic_number": 30,
+    "atomic_mass": 65.38,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10",
+    "oxidation_states": [0, 1, 2],
+    "melting_point": 692.68,
+    "boiling_point": 1180,
+    "density": 7.14,
+    "electronegativity": 1.65,
+    "abundance_earth": "0.0078%",
+    "abundance_universe": "0.00003%",
+    "discovery_year": 1746,
+    "discoverer": "Andreas Sigismund Marggraf",
+    "applications": [
+      "Galvanization",
+      "Batteries",
+      "Die casting",
+      "Nutritional supplements"
+    ],
+    "isotopes": {
+      "Zn-64": {"abundance": "48.63%", "half_life": "stable"},
+      "Zn-66": {"abundance": "27.90%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Metal fume fever", "Dust explosions", "Environmental toxicity"],
+      "safety_measures": ["Ventilation", "Dust control", "Fire prevention"]
+    }
+  },
+  "Ga": {
+    "name": "Gallium",
+    "atomic_number": 31,
+    "atomic_mass": 69.723,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p1",
+    "oxidation_states": [1, 2, 3],
+    "melting_point": 302.91,
+    "boiling_point": 2477,
+    "density": 5.91,
+    "electronegativity": 1.81,
+    "abundance_earth": "0.0019%",
+    "abundance_universe": "0.000001%",
+    "discovery_year": 1875,
+    "discoverer": "Paul-Émile Lecoq de Boisbaudran",
+    "applications": [
+      "Semiconductors",
+      "LEDs",
+      "Solar cells",
+      "Temperature measurement"
+    ],
+    "isotopes": {
+      "Ga-69": {"abundance": "60.11%", "half_life": "stable"},
+      "Ga-71": {"abundance": "39.89%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Skin irritation", "Respiratory issues", "Corrosive when molten"],
+      "safety_measures": ["Chemical resistant gloves", "Eye protection", "Temperature control"]
+    }
+  },
+  "Ge": {
+    "name": "Germanium",
+    "atomic_number": 32,
+    "atomic_mass": 72.630,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p2",
+    "oxidation_states": [-4, 0, 1, 2, 3, 4],
+    "melting_point": 1211.4,
+    "boiling_point": 3106,
+    "density": 5.323,
+    "electronegativity": 2.01,
+    "abundance_earth": "0.00014%",
+    "abundance_universe": "0.000002%",
+    "discovery_year": 1886,
+    "discoverer": "Clemens Winkler",
+    "applications": [
+      "Fiber optics",
+      "Infrared optics",
+      "Semiconductors",
+      "Solar cells"
+    ],
+    "isotopes": {
+      "Ge-74": {"abundance": "36.28%", "half_life": "stable"},
+      "Ge-72": {"abundance": "27.54%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Kidney toxicity", "Eye irritation", "Dust hazards"],
+      "safety_measures": ["Ventilation", "Eye protection", "Dust control"]
+    }
+  },
+  "As": {
+    "name": "Arsenic",
+    "atomic_number": 33,
+    "atomic_mass": 74.921595,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p3",
+    "oxidation_states": [-3, 0, 2, 3, 5],
+    "melting_point": 1090,
+    "boiling_point": 887,
+    "density": 5.727,
+    "electronegativity": 2.18,
+    "abundance_earth": "0.00021%",
+    "abundance_universe": "0.0000008%",
+    "discovery_year": "Ancient",
+    "discoverer": "Arabic alchemists",
+    "applications": [
+      "Semiconductors",
+      "Wood preservation",
+      "Pesticides",
+      "Lead-acid batteries"
+    ],
+    "isotopes": {
+      "As-75": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Highly toxic", "Carcinogenic", "Environmental poison"],
+      "safety_measures": ["Strict containment", "Full PPE", "Exposure monitoring"]
+    }
+  },
+  "Se": {
+    "name": "Selenium",
+    "atomic_number": 34,
+    "atomic_mass": 78.971,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p4",
+    "oxidation_states": [-2, 0, 2, 4, 6],
+    "melting_point": 494,
+    "boiling_point": 958,
+    "density": 4.809,
+    "electronegativity": 2.55,
+    "abundance_earth": "0.000005%",
+    "abundance_universe": "0.000003%",
+    "discovery_year": 1817,
+    "discoverer": "Jöns Jacob Berzelius",
+    "applications": [
+      "Photovoltaic cells",
+      "Glass manufacturing",
+      "Photocopiers",
+      "Nutritional supplements"
+    ],
+    "isotopes": {
+      "Se-80": {"abundance": "49.61%", "half_life": "stable"},
+      "Se-78": {"abundance": "23.77%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Toxic fumes", "Skin irritation", "Selenium fever"],
+      "safety_measures": ["Ventilation", "Skin protection", "Exposure limits"]
+    }
+  },
+  "Br": {
+    "name": "Bromine",
+    "atomic_number": 35,
+    "atomic_mass": 79.904,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p5",
+    "oxidation_states": [-1, 1, 3, 4, 5, 7],
+    "melting_point": 265.8,
+    "boiling_point": 332,
+    "density": 3.122,
+    "electronegativity": 2.96,
+    "abundance_earth": "0.0003%",
+    "abundance_universe": "0.0000007%",
+    "discovery_year": 1826,
+    "discoverer": "Antoine Jérôme Balard",
+    "applications": [
+      "Flame retardants",
+      "Water purification",
+      "Photography",
+      "Pesticides"
+    ],
+    "isotopes": {
+      "Br-79": {"abundance": "50.69%", "half_life": "stable"},
+      "Br-81": {"abundance": "49.31%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Severe burns", "Toxic fumes", "Respiratory damage"],
+      "safety_measures": ["Fume hood use", "Chemical resistant PPE", "Emergency protocols"]
+    }
+  },
+  "Kr": {
+    "name": "Krypton",
+    "atomic_number": 36,
+    "atomic_mass": 83.798,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6",
+    "oxidation_states": [0, 2],
+    "melting_point": 115.79,
+    "boiling_point": 119.93,
+    "density": 0.003733,
+    "electronegativity": 3.00,
+    "abundance_earth": "0.0000001%",
+    "abundance_universe": "0.000004%",
+    "discovery_year": 1898,
+    "discoverer": "William Ramsay and Morris Travers",
+    "applications": [
+      "High-powered lamps",
+      "Flash photography",
+      "Laser technology",
+      "Window insulation"
+    ],
+    "isotopes": {
+      "Kr-84": {"abundance": "57.00%", "half_life": "stable"},
+      "Kr-86": {"abundance": "17.30%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Asphyxiant at high concentrations", "Cryogenic hazards"],
+      "safety_measures": ["Ventilation", "Oxygen monitoring", "Cryogenic handling"]
+    }
+  },
+  "Rb": {
+    "name": "Rubidium",
+    "atomic_number": 37,
+    "atomic_mass": 85.4678,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1",
+    "oxidation_states": [-1, 1],
+    "melting_point": 312.45,
+    "boiling_point": 961,
+    "density": 1.532,
+    "electronegativity": 0.82,
+    "abundance_earth": "0.006%",
+    "abundance_universe": "0.000001%",
+    "discovery_year": 1861,
+    "discoverer": "Robert Bunsen and Gustav Kirchhoff",
+    "applications": [
+      "Atomic clocks",
+      "Vacuum tubes",
+      "Photocells",
+      "Medical imaging"
+    ],
+    "isotopes": {
+      "Rb-85": {"abundance": "72.17%", "half_life": "stable"},
+      "Rb-87": {"abundance": "27.83%", "half_life": "4.9×10^10 years"}
+    },
+    "health_data": {
+      "risks": ["Violent reaction with water", "Burns", "Spontaneous ignition"],
+      "safety_measures": ["Store under mineral oil", "Fire safety", "Chemical PPE"]
+    }
+  },
+  "Sr": {
+    "name": "Strontium",
+    "atomic_number": 38,
+    "atomic_mass": 87.62,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2",
+    "oxidation_states": [2],
+    "melting_point": 1050,
+    "boiling_point": 1655,
+    "density": 2.64,
+    "electronegativity": 0.95,
+    "abundance_earth": "0.036%",
+    "abundance_universe": "0.000003%",
+    "discovery_year": 1790,
+    "discoverer": "Adair Crawford",
+    "applications": [
+      "Fireworks",
+      "Nuclear batteries",
+      "Glass manufacturing",
+      "Medical imaging"
+    ],
+    "isotopes": {
+      "Sr-88": {"abundance": "82.58%", "half_life": "stable"},
+      "Sr-86": {"abundance": "9.86%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Radioactive isotopes", "Reacts with water", "Bone seeker"],
+      "safety_measures": ["Radiation protection", "Moisture control", "Exposure monitoring"]
+    }
+  },
+  "Y": {
+    "name": "Yttrium",
+    "atomic_number": 39,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d1",
+    "atomic_mass": 88.90584,
+    "oxidation_states": [1, 2, 3],
+    "melting_point": 1799,
+    "boiling_point": 3609,
+    "density": 4.469,
+    "electronegativity": 1.22,
+    "abundance_earth": "0.0029%",
+    "abundance_universe": "0.0000007%",
+    "discovery_year": 1794,
+    "discoverer": "Johan Gadolin",
+    "applications": [
+      "LED phosphors",
+      "Laser crystals",
+      "Superconductors",
+      "Cancer treatment"
+    ],
+    "isotopes": {
+      "Y-89": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Lung irritation", "Liver damage", "Radioactive isotopes"],
+      "safety_measures": ["Dust control", "Ventilation", "Radiation monitoring"]
+    }
+  },
+  "Zr": {
+    "name": "Zirconium",
+    "atomic_number": 40,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d2",
+    "atomic_mass": 91.224,
+    "oxidation_states": [-2, 0, 1, 2, 3, 4],
+    "melting_point": 2128,
+    "boiling_point": 4682,
+    "density": 6.506,
+    "electronegativity": 1.33,
+    "abundance_earth": "0.013%",
+    "abundance_universe": "0.000005%",
+    "discovery_year": 1789,
+    "discoverer": "Martin Heinrich Klaproth",
+    "applications": [
+      "Nuclear reactors",
+      "Chemical processing",
+      "Surgical implants",
+      "Ceramics"
+    ],
+    "isotopes": {
+      "Zr-90": {"abundance": "51.45%", "half_life": "stable"},
+      "Zr-94": {"abundance": "17.38%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Pyrophoric powder", "Dust explosion", "Radiation hazards"],
+      "safety_measures": ["Fire prevention", "Dust control", "Radiation protection"]
+    }
+  },
+  "Nb": {
+    "name": "Niobium",
+    "atomic_number": 41,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d4",
+    "atomic_mass": 92.90637,
+    "oxidation_states": [-1, 2, 3, 4, 5],
+    "melting_point": 2750,
+    "boiling_point": 5017,
+    "density": 8.57,
+    "electronegativity": 1.6,
+    "abundance_earth": "0.0017%",
+    "abundance_universe": "0.0000002%",
+    "discovery_year": 1801,
+    "discoverer": "Charles Hatchett",
+    "applications": [
+      "Superconducting magnets",
+      "Steel alloys",
+      "Jet engines",
+      "Particle accelerators"
+    ],
+    "isotopes": {
+      "Nb-93": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Eye irritation", "Dust hazards", "Fire risk when powdered"],
+      "safety_measures": ["Eye protection", "Dust control", "Fire prevention"]
+    }
+  },
+  "Mo": {
+    "name": "Molybdenum",
+    "atomic_number": 42,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d5",
+    "atomic_mass": 95.95,
+    "oxidation_states": [-2, -1, 0, 1, 2, 3, 4, 5, 6],
+    "melting_point": 2896,
+    "boiling_point": 4912,
+    "density": 10.28,
+    "electronegativity": 2.16,
+    "abundance_earth": "0.00011%",
+    "abundance_universe": "0.0000005%",
+    "discovery_year": 1781,
+    "discoverer": "Carl Wilhelm Scheele",
+    "applications": [
+      "Steel strengthening",
+      "Nuclear reactors",
+      "Lubricants",
+      "Catalysts"
+    ],
+    "isotopes": {
+      "Mo-98": {"abundance": "24.13%", "half_life": "stable"},
+      "Mo-96": {"abundance": "16.68%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Respiratory irritation", "Liver damage", "Metal fume fever"],
+      "safety_measures": ["Ventilation", "Respiratory protection", "Exposure monitoring"]
+    }
+  },
+  "Tc": {
+    "name": "Technetium",
+    "atomic_number": 43,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d5",
+    "atomic_mass": 98,
+    "oxidation_states": [-3, -1, 0, 1, 2, 3, 4, 5, 6, 7],
+    "melting_point": 2430,
+    "boiling_point": 4538,
+    "density": 11.5,
+    "electronegativity": 1.9,
+    "abundance_earth": "Synthetic",
+    "abundance_universe": "0",
+    "discovery_year": 1937,
+    "discoverer": "Carlo Perrier and Emilio Segrè",
+    "applications": [
+      "Nuclear medicine",
+      "Medical imaging",
+      "Radiotherapy",
+      "Nuclear research"
+    ],
+    "isotopes": {
+      "Tc-99m": {"abundance": "synthetic", "half_life": "6.01 hours"},
+      "Tc-99": {"abundance": "synthetic", "half_life": "211,000 years"}
+    },
+    "health_data": {
+      "risks": ["Radioactive", "Internal radiation exposure", "Beta emission"],
+      "safety_measures": ["Radiation shielding", "Contamination control", "Strict handling protocols"]
+    }
+  },
+  "Ru": {
+    "name": "Ruthenium",
+    "atomic_number": 44,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d7",
+    "atomic_mass": 101.07,
+    "oxidation_states": [-2, 0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "melting_point": 2607,
+    "boiling_point": 4423,
+    "density": 12.37,
+    "electronegativity": 2.2,
+    "abundance_earth": "0.0000001%",
+    "abundance_universe": "0.0000004%",
+    "discovery_year": 1844,
+    "discoverer": "Karl Ernst Claus",
+    "applications": [
+      "Electronics",
+      "Chemical catalysts",
+      "Solar cells",
+      "Jewelry"
+    ],
+    "isotopes": {
+      "Ru-101": {"abundance": "31.61%", "half_life": "stable"},
+      "Ru-102": {"abundance": "31.55%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Toxic compounds", "Staining of skin", "Eye irritation"],
+      "safety_measures": ["Chemical resistant PPE", "Eye protection", "Good ventilation"]
+    }
+  },
+  "Rh": {
+    "name": "Rhodium",
+    "atomic_number": 45,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d8",
+    "atomic_mass": 102.90550,
+    "oxidation_states": [-1, 0, 1, 2, 3, 4, 5, 6],
+    "melting_point": 2237,
+    "boiling_point": 3968,
+    "density": 12.41,
+    "electronegativity": 2.28,
+    "abundance_earth": "0.0000001%",
+    "abundance_universe": "0.0000001%",
+    "discovery_year": 1803,
+    "discoverer": "William Hyde Wollaston",
+    "applications": [
+      "Catalytic converters",
+      "Laboratory crucibles",
+      "Jewelry plating",
+      "Mirror coatings"
+    ],
+    "isotopes": {
+      "Rh-103": {"abundance": "100%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Respiratory sensitizer", "Eye irritation", "Toxic compounds"],
+      "safety_measures": ["Local exhaust", "Eye protection", "Chemical resistant PPE"]
+    }
+  },
+  "Pd": {
+    "name": "Palladium",
+    "atomic_number": 46,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s0 4d10",
+    "atomic_mass": 106.42,
+    "oxidation_states": [0, 1, 2, 3, 4],
+    "melting_point": 1828.05,
+    "boiling_point": 3236,
+    "density": 12.02,
+    "electronegativity": 2.20,
+    "abundance_earth": "0.000006%",
+    "abundance_universe": "0.0000002%",
+    "discovery_year": 1803,
+    "discoverer": "William Hyde Wollaston",
+    "applications": [
+      "Catalytic converters",
+      "Electronics",
+      "Dental alloys",
+      "Hydrogen storage"
+    ],
+    "isotopes": {
+      "Pd-106": {"abundance": "27.33%", "half_life": "stable"},
+      "Pd-108": {"abundance": "26.46%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Skin sensitization", "Respiratory irritation", "Metal fume fever"],
+      "safety_measures": ["Ventilation", "Skin protection", "Respiratory protection"]
+    }
+  },
+  "Ag": {
+    "name": "Silver",
+    "atomic_number": 47,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s1 4d10",
+    "atomic_mass": 107.8682,
+    "oxidation_states": [-2, -1, 1, 2, 3],
+    "melting_point": 1234.93,
+    "boiling_point": 2435,
+    "density": 10.49,
+    "electronegativity": 1.93,
+    "abundance_earth": "0.0000008%",
+    "abundance_universe": "0.0000001%",
+    "discovery_year": "Prehistoric",
+    "discoverer": "Known to ancients",
+    "applications": [
+      "Jewelry",
+      "Photography",
+      "Electronics",
+      "Antimicrobial uses"
+    ],
+    "isotopes": {
+      "Ag-107": {"abundance": "51.839%", "half_life": "stable"},
+      "Ag-109": {"abundance": "48.161%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Argyria (skin discoloration)", "Eye irritation", "Environmental toxicity"],
+      "safety_measures": ["Dust control", "Eye protection", "Environmental controls"]
+    }
+  },
+  "Cd": {
+    "name": "Cadmium",
+    "atomic_number": 48,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10",
+    "atomic_mass": 112.414,
+    "oxidation_states": [1, 2],
+    "melting_point": 594.22,
+    "boiling_point": 1040,
+    "density": 8.65,
+    "electronegativity": 1.69,
+    "abundance_earth": "0.000015%",
+    "abundance_universe": "0.0000002%",
+    "discovery_year": 1817,
+    "discoverer": "Friedrich Stromeyer",
+    "applications": [
+      "Rechargeable batteries",
+      "Solar cells",
+      "Nuclear control rods",
+      "Pigments"
+    ],
+    "isotopes": {
+      "Cd-114": {"abundance": "28.73%", "half_life": "stable"},
+      "Cd-112": {"abundance": "24.13%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Highly toxic", "Carcinogenic", "Kidney damage"],
+      "safety_measures": ["Strict containment", "Exposure monitoring", "Full PPE"]
+    }
+  },
+  "In": {
+    "name": "Indium",
+    "atomic_number": 49,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p1",
+    "atomic_mass": 114.818,
+    "oxidation_states": [1, 2, 3],
+    "melting_point": 429.75,
+    "boiling_point": 2345,
+    "density": 7.31,
+    "electronegativity": 1.78,
+    "abundance_earth": "0.000016%",
+    "abundance_universe": "0.0000001%",
+    "discovery_year": 1863,
+    "discoverer": "Ferdinand Reich and Hieronymous Richter",
+    "applications": [
+      "Touch screens",
+      "LCD displays",
+      "Solar panels",
+      "Semiconductors"
+    ],
+    "isotopes": {
+      "In-115": {"abundance": "95.71%", "half_life": "4.41×10^14 years"},
+      "In-113": {"abundance": "4.29%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Toxic compounds", "Reproductive toxicity", "Lung damage"],
+      "safety_measures": ["Ventilation", "PPE", "Exposure limits"]
+    }
+  },
+  "Sn": {
+    "name": "Tin",
+    "atomic_number": 50,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p2",
+    "atomic_mass": 118.710,
+    "oxidation_states": [-4, 2, 4],
+    "melting_point": 505.08,
+    "boiling_point": 2875,
+    "density": 7.265,
+    "electronegativity": 1.96,
+    "abundance_earth": "0.00022%",
+    "abundance_universe": "0.0000004%",
+    "discovery_year": "Prehistoric",
+    "discoverer": "Known to ancients",
+    "applications": [
+      "Soldering",
+      "Food packaging",
+      "Bronze alloys",
+      "Superconductors"
+    ],
+    "isotopes": {
+      "Sn-120": {"abundance": "32.58%", "half_life": "stable"},
+      "Sn-118": {"abundance": "24.22%", "half_life": "stable"}
+    },
+    "health_data": {
+      "risks": ["Metal fume fever", "Skin irritation", "Organic tin toxicity"],
+      "safety_measures": ["Ventilation", "Skin protection", "Fume control"]
+    }
+  },
+  "Sb": {
+    "name": "Antimony",
+    "atomic_number": 51,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p3",
+    "atomic_mass": 121.760,
+    "oxidation_states": [-3, 3, 5],
+    "melting_point": 903.78,
+    "boiling_point": 1860,
+    "density": 6.697,
+    "electronegativity": 2.05,
+    "abundance_earth": "0.00002%",
+    "discovery_year": "Ancient",
+    "discoverer": "Known to ancients",
+    "applications": ["Flame retardants", "Batteries", "Semiconductors"],
+    "health_data": {
+      "risks": ["Toxic dust", "Heart problems", "Lung damage"],
+      "safety_measures": ["Dust control", "Ventilation", "PPE"]
+    }
+  },
+  "Te": {
+    "name": "Tellurium",
+    "atomic_number": 52,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p4",
+    "atomic_mass": 127.60,
+    "oxidation_states": [-2, 2, 4, 6],
+    "melting_point": 722.66,
+    "boiling_point": 1261,
+    "density": 6.24,
+    "applications": ["Solar cells", "Steel alloys", "Rubber processing"],
+    "health_data": {
+      "risks": ["Garlic breath", "Kidney damage", "Nervous system effects"],
+      "safety_measures": ["Local exhaust", "Respiratory protection", "Monitoring"]
+    }
+  },
+  "I": {
+    "name": "Iodine",
+    "atomic_number": 53,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p5",
+    "atomic_mass": 126.90447,
+    "oxidation_states": [-1, 1, 3, 5, 7],
+    "melting_point": 386.85,
+    "boiling_point": 457.4,
+    "density": 4.933,
+    "applications": ["Photography", "Medicine", "Disinfectants"],
+    "health_data": {
+      "risks": ["Thyroid effects", "Vapor irritation", "Burns"],
+      "safety_measures": ["Fume hood", "Eye protection", "Skin protection"]
+    }
+  },
+  "Xe": {
+    "name": "Xenon",
+    "atomic_number": 54,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6",
+    "atomic_mass": 131.293,
+    "oxidation_states": [0, 2, 4, 6, 8],
+    "melting_point": 161.4,
+    "boiling_point": 165.03,
+    "density": 0.005887,
+    "applications": ["Arc lamps", "Ion engines", "Medical imaging"],
+    "health_data": {
+      "risks": ["Asphyxiant", "Anesthetic effects", "Cryogenic hazards"],
+      "safety_measures": ["Ventilation", "Oxygen monitoring", "Cold protection"]
+    }
+  },
+  "Cs": {
+    "name": "Cesium",
+    "atomic_number": 55,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s1",
+    "atomic_mass": 132.90545196,
+    "oxidation_states": [1],
+    "melting_point": 301.59,
+    "boiling_point": 944,
+    "density": 1.93,
+    "applications": ["Atomic clocks", "Photoelectric cells", "Space propulsion"],
+    "health_data": {
+      "risks": ["Explosive with water", "Severe burns", "Radioactive isotopes"],
+      "safety_measures": ["Strict containment", "Fire safety", "Radiation protection"]
+    }
+  },
+  "Ba": {
+    "name": "Barium",
+    "atomic_number": 56,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2",
+    "atomic_mass": 137.327,
+    "oxidation_states": [2],
+    "melting_point": 1000,
+    "boiling_point": 2170,
+    "density": 3.51,
+    "applications": ["X-ray imaging", "Spark plugs", "Green fireworks"],
+    "health_data": {
+      "risks": ["Toxic soluble compounds", "Respiratory issues", "Muscle stimulation"],
+      "safety_measures": ["Dust control", "Chemical hygiene", "PPE"]
+    }
+  },
+  "La": {
+    "name": "Lanthanum",
+    "atomic_number": 57,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 5d1",
+    "atomic_mass": 138.90547,
+    "oxidation_states": [3],
+    "melting_point": 1193,
+    "boiling_point": 3737,
+    "density": 6.145,
+    "applications": ["Camera lenses", "Battery electrodes", "Carbon arc lamps"],
+    "health_data": {
+      "risks": ["Respiratory irritation", "Eye damage", "Liver effects"],
+      "safety_measures": ["Ventilation", "Eye protection", "Dust control"]
+    }
+  },
+  "Ce": {
+    "name": "Cerium",
+    "atomic_number": 58,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f1 5d1",
+    "atomic_mass": 140.116,
+    "oxidation_states": [3, 4],
+    "melting_point": 1068,
+    "boiling_point": 3716,
+    "density": 6.770,
+    "applications": ["Glass polishing", "Catalytic converters", "Self-cleaning ovens"],
+    "health_data": {
+      "risks": ["Pyrophoric powder", "Respiratory issues", "Eye irritation"],
+      "safety_measures": ["Fire prevention", "Dust control", "Eye protection"]
+    }
+  },
+  "Pr": {
+    "name": "Praseodymium",
+    "atomic_number": 59,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f3",
+    "atomic_mass": 140.90766,
+    "oxidation_states": [3, 4],
+    "melting_point": 1208,
+    "boiling_point": 3793,
+    "density": 6.773,
+    "applications": ["Magnets", "Glass tinting", "Carbon arc lights"],
+    "health_data": {
+      "risks": ["Moderate toxicity", "Dust hazards", "Eye irritation"],
+      "safety_measures": ["Ventilation", "Dust masks", "Eye protection"]
+    }
+  },
+  "Nd": {
+    "name": "Neodymium",
+    "atomic_number": 60,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f4",
+    "atomic_mass": 144.242,
+    "oxidation_states": [3],
+    "melting_point": 1297,
+    "boiling_point": 3347,
+    "density": 7.007,
+    "applications": ["Powerful magnets", "Lasers", "Glass coloring"],
+    "health_data": {
+      "risks": ["Dust inhalation", "Eye irritation", "Magnetic field hazards"],
+      "safety_measures": ["Dust control", "Eye protection", "Magnetic safety"]
+    }
+  },
+  "Pm": {
+    "name": "Promethium",
+    "atomic_number": 61,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f5",
+    "atomic_mass": 145,
+    "oxidation_states": [3],
+    "melting_point": 1315,
+    "boiling_point": 3273,
+    "density": 7.26,
+    "applications": ["Nuclear batteries", "Luminous paint", "Atomic research"],
+    "health_data": {
+      "risks": ["Radioactive", "Beta radiation", "Internal exposure"],
+      "safety_measures": ["Radiation shielding", "Contamination control", "Monitoring"]
+    }
+  },
+  "Sm": {
+    "name": "Samarium",
+    "atomic_number": 62,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f6",
+    "atomic_mass": 150.36,
+    "oxidation_states": [2, 3],
+    "melting_point": 1345,
+    "boiling_point": 2067,
+    "density": 7.52,
+    "applications": ["Permanent magnets", "Nuclear control rods", "Cancer treatment"],
+    "health_data": {
+      "risks": ["Dust toxicity", "Eye irritation", "Magnetic hazards"],
+      "safety_measures": ["Dust control", "Eye protection", "Magnetic safety"]
+    }
+  },
+  "Eu": {
+    "name": "Europium",
+    "atomic_number": 63,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f7",
+    "atomic_mass": 151.964,
+    "oxidation_states": [2, 3],
+    "melting_point": 1099,
+    "boiling_point": 1802,
+    "density": 5.243,
+    "applications": ["Red phosphors", "Anti-counterfeiting", "Nuclear research"],
+    "health_data": {
+      "risks": ["Pyrophoric", "Oxidation hazard", "Dust toxicity"],
+      "safety_measures": ["Inert atmosphere", "Fire prevention", "Dust control"]
+    }
+  },
+  "Gd": {
+    "name": "Gadolinium",
+    "atomic_number": 64,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f7 5d1",
+    "atomic_mass": 157.25,
+    "oxidation_states": [3],
+    "melting_point": 1585,
+    "boiling_point": 3546,
+    "density": 7.895,
+    "applications": ["MRI contrast", "Neutron capture", "Memory devices"],
+    "health_data": {
+      "risks": ["Kidney toxicity", "Respiratory irritation", "Magnetic effects"],
+      "safety_measures": ["Ventilation", "PPE", "Magnetic safety protocols"]
+    }
+  },
+  "Tb": {
+    "name": "Terbium",
+    "atomic_number": 65,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f9",
+    "atomic_mass": 158.92535,
+    "oxidation_states": [3, 4],
+    "melting_point": 1629,
+    "boiling_point": 3503,
+    "density": 8.229,
+    "applications": ["Green phosphors", "Magnetic materials", "Optical devices"],
+    "health_data": {
+      "risks": ["Dust irritation", "Eye hazards", "Moderate toxicity"],
+      "safety_measures": ["Dust control", "Eye protection", "Good hygiene"]
+    }
+  },
+  "Dy": {
+    "name": "Dysprosium",
+    "atomic_number": 66,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f10",
+    "atomic_mass": 162.500,
+    "oxidation_states": [3],
+    "melting_point": 1680,
+    "boiling_point": 2840,
+    "density": 8.551,
+    "applications": ["Wind turbines", "Electric vehicles", "Data storage"],
+    "health_data": {
+      "risks": ["Dust irritation", "Moderate toxicity", "Magnetic hazards"],
+      "safety_measures": ["Ventilation", "PPE", "Magnetic safety"]
+    }
+  },
+  "Ho": {
+    "name": "Holmium",
+    "atomic_number": 67,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f11",
+    "atomic_mass": 164.93033,
+    "oxidation_states": [3],
+    "melting_point": 1734,
+    "boiling_point": 2993,
+    "density": 8.795,
+    "applications": ["Magnetic materials", "Laser technology", "Nuclear control rods"],
+    "health_data": {
+      "risks": ["Low toxicity", "Dust hazards", "Eye irritation"],
+      "safety_measures": ["Dust control", "Eye protection", "Good ventilation"]
+    }
+  },
+  "Er": {
+    "name": "Erbium",
+    "atomic_number": 68,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f12",
+    "atomic_mass": 167.259,
+    "oxidation_states": [3],
+    "melting_point": 1802,
+    "boiling_point": 3141,
+    "density": 9.066,
+    "applications": ["Fiber optics", "Metallurgy", "Pink glass coloring"],
+    "health_data": {
+      "risks": ["Respiratory irritation", "Eye sensitivity", "Low toxicity"],
+      "safety_measures": ["Respiratory protection", "Eye safety", "Ventilation"]
+    }
+  },
+  "Tm": {
+    "name": "Thulium",
+    "atomic_number": 69,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f13",
+    "atomic_mass": 168.93422,
+    "oxidation_states": [2, 3],
+    "melting_point": 1818,
+    "boiling_point": 2223,
+    "density": 9.321,
+    "applications": ["Portable X-ray devices", "Lasers", "Ceramic magnets"],
+    "health_data": {
+      "risks": ["Low toxicity", "Radiation hazards", "Dust irritation"],
+      "safety_measures": ["Radiation safety", "Dust control", "PPE"]
+    }
+  },
+  "Yb": {
+    "name": "Ytterbium",
+    "atomic_number": 70,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14",
+    "atomic_mass": 173.045,
+    "oxidation_states": [2, 3],
+    "melting_point": 1097,
+    "boiling_point": 1469,
+    "density": 6.965,
+    "applications": ["Fiber optic technology", "Stress gauges", "Laser systems"],
+    "health_data": {
+      "risks": ["Skin irritation", "Eye hazards", "Moderate toxicity"],
+      "safety_measures": ["Skin protection", "Eye safety", "Chemical hygiene"]
+    }
+  },
+  "Lu": {
+    "name": "Lutetium",
+    "atomic_number": 71,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d1",
+    "atomic_mass": 174.9668,
+    "oxidation_states": [3],
+    "melting_point": 1925,
+    "boiling_point": 3675,
+    "density": 9.841,
+    "applications": ["PET scan detectors", "High-refractive glass", "Oil cracking"],
+    "health_data": {
+      "risks": ["Low toxicity", "Dust irritation", "Eye hazards"],
+      "safety_measures": ["Dust control", "Eye protection", "Ventilation"]
+    }
+  },
+  "Hf": {
+    "name": "Hafnium",
+    "atomic_number": 72,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d2",
+    "atomic_mass": 178.49,
+    "oxidation_states": [2, 3, 4],
+    "melting_point": 2506,
+    "boiling_point": 4876,
+    "density": 13.31,
+    "applications": ["Nuclear control rods", "Superalloys", "Plasma cutting"],
+    "health_data": {
+      "risks": ["Fire hazard", "Dust explosion", "Respiratory irritation"],
+      "safety_measures": ["Fire prevention", "Dust control", "Respiratory protection"]
+    }
+  },
+  "Ta": {
+    "name": "Tantalum",
+    "atomic_number": 73,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d3",
+    "atomic_mass": 180.94788,
+    "oxidation_states": [-1, 2, 3, 4, 5],
+    "melting_point": 3290,
+    "boiling_point": 5731,
+    "density": 16.654,
+    "applications": ["Electronic components", "Surgical implants", "Chemical processing"],
+    "health_data": {
+      "risks": ["Dust hazards", "Eye irritation", "Moderate toxicity"],
+      "safety_measures": ["Dust control", "Eye protection", "Good ventilation"]
+    }
+  },
+  "W": {
+    "name": "Tungsten",
+    "atomic_number": 74,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d4",
+    "atomic_mass": 183.84,
+    "oxidation_states": [-2, -1, 0, 1, 2, 3, 4, 5, 6],
+    "melting_point": 3695,
+    "boiling_point": 5828,
+    "density": 19.25,
+    "applications": ["Light bulb filaments", "X-ray tubes", "Military applications"],
+    "health_data": {
+      "risks": ["Respiratory issues", "Eye irritation", "Heavy metal toxicity"],
+      "safety_measures": ["Ventilation", "Eye protection", "Exposure monitoring"]
+    }
+  },
+  "Re": {
+    "name": "Rhenium",
+    "atomic_number": 75,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d5",
+    "atomic_mass": 186.207,
+    "oxidation_states": [-3, -1, 0, 1, 2, 3, 4, 5, 6, 7],
+    "melting_point": 3459,
+    "boiling_point": 5869,
+    "density": 21.02,
+    "applications": ["Jet engines", "Flash photography", "Catalysts"],
+    "health_data": {
+      "risks": ["Toxic compounds", "Skin irritation", "Eye hazards"],
+      "safety_measures": ["Chemical PPE", "Eye protection", "Good hygiene"]
+    }
+  },
+  "Os": {
+    "name": "Osmium",
+    "atomic_number": 76,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d6",
+    "atomic_mass": 190.23,
+    "oxidation_states": [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8],
+    "melting_point": 3306,
+    "boiling_point": 5285,
+    "density": 22.59,
+    "applications": ["Fountain pen tips", "Electrical contacts", "Chemical catalysts"],
+    "health_data": {
+      "risks": ["Highly toxic oxide", "Respiratory damage", "Eye damage"],
+      "safety_measures": ["Strict containment", "Respiratory protection", "Eye safety"]
+    }
+  },
+  "Ir": {
+    "name": "Iridium",
+    "atomic_number": 77,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d7",
+    "atomic_mass": 192.217,
+    "oxidation_states": [-3, -1, 0, 1, 2, 3, 4, 5, 6],
+    "melting_point": 2719,
+    "boiling_point": 4701,
+    "density": 22.56,
+    "applications": ["Spark plugs", "Crucibles", "Anti-cancer compounds"],
+    "health_data": {
+      "risks": ["Respiratory irritation", "Eye hazards", "Moderate toxicity"],
+      "safety_measures": ["Ventilation", "Eye protection", "Dust control"]
+    }
+  },
+  "Pt": {
+    "name": "Platinum",
+    "atomic_number": 78,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s1 4f14 5d9",
+    "atomic_mass": 195.084,
+    "oxidation_states": [-2, 0, 1, 2, 3, 4, 5, 6],
+    "melting_point": 2041.4,
+    "boiling_point": 4098,
+    "density": 21.45,
+    "applications": ["Catalytic converters", "Jewelry", "Laboratory equipment"],
+    "health_data": {
+      "risks": ["Sensitizer", "Respiratory irritation", "Eye hazards"],
+      "safety_measures": ["Local exhaust", "PPE", "Eye protection"]
+    }
+  },
+  "Au": {
+    "name": "Gold",
+    "atomic_number": 79,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s1 4f14 5d10",
+    "atomic_mass": 196.966569,
+    "oxidation_states": [-1, 1, 2, 3, 5],
+    "melting_point": 1337.33,
+    "boiling_point": 3129,
+    "density": 19.32,
+    "applications": ["Jewelry", "Electronics", "Medicine", "Currency"],
+    "health_data": {
+      "risks": ["Low toxicity", "Nanoparticle hazards", "Dust irritation"],
+      "safety_measures": ["Dust control", "Good ventilation", "PPE"]
+    }
+  },
+  "Hg": {
+    "name": "Mercury",
+    "atomic_number": 80,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10",
+    "atomic_mass": 200.592,
+    "oxidation_states": [1, 2],
+    "melting_point": -38.83,
+    "boiling_point": 356.73,
+    "density": 13.534,
+    "applications": ["Thermometers", "Fluorescent lamps", "Dental amalgams"],
+    "health_data": {
+      "risks": ["Highly toxic", "Neurotoxin", "Environmental hazard"],
+      "safety_measures": ["Strict containment", "Spill protocols", "Exposure monitoring"]
+    }
+  },
+  "Tl": {
+    "name": "Thallium",
+    "atomic_number": 81,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p1",
+    "atomic_mass": 204.38,
+    "oxidation_states": [1, 3],
+    "melting_point": 577,
+    "boiling_point": 1746,
+    "density": 11.85,
+    "applications": ["Electronics", "Medical imaging", "Infrared detectors"],
+    "health_data": {
+      "risks": ["Extremely toxic", "Cumulative poison", "Neurological damage"],
+      "safety_measures": ["Strict containment", "Medical monitoring", "PPE"]
+    }
+  },
+  "Pb": {
+    "name": "Lead",
+    "atomic_number": 82,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p2",
+    "atomic_mass": 207.2,
+    "oxidation_states": [-4, 2, 4],
+    "melting_point": 600.61,
+    "boiling_point": 2022,
+    "density": 11.34,
+    "applications": ["Batteries", "Radiation shielding", "Construction"],
+    "health_data": {
+      "risks": ["Neurotoxin", "Developmental toxicity", "Cumulative poison"],
+      "safety_measures": ["Exposure monitoring", "Respiratory protection", "Hygiene"]
+    }
+  },
+  "Bi": {
+    "name": "Bismuth",
+    "atomic_number": 83,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p3",
+    "atomic_mass": 208.98040,
+    "oxidation_states": [-3, 3, 5],
+    "melting_point": 544.7,
+    "boiling_point": 1837,
+    "density": 9.78,
+    "applications": ["Pharmaceuticals", "Cosmetics", "Low-melting alloys"],
+    "health_data": {
+      "risks": ["Low toxicity", "Dust irritation", "Eye hazards"],
+      "safety_measures": ["Ventilation", "Dust control", "Eye protection"]
+    }
+  },
+  "Po": {
+    "name": "Polonium",
+    "atomic_number": 84,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p4",
+    "atomic_mass": 209,
+    "oxidation_states": [-2, 2, 4, 6],
+    "melting_point": 527,
+    "boiling_point": 1235,
+    "density": 9.196,
+    "applications": ["Static eliminators", "Heat sources", "Research"],
+    "health_data": {
+      "risks": ["Highly radioactive", "Alpha emitter", "Lethal toxicity"],
+      "safety_measures": ["Radiation containment", "Strict protocols", "Monitoring"]
+    }
+  },
+  "At": {
+    "name": "Astatine",
+    "atomic_number": 85,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p5",
+    "atomic_mass": 210,
+    "oxidation_states": [-1, 1, 3, 5, 7],
+    "melting_point": 575,
+    "boiling_point": 610,
+    "density": 7,
+    "applications": ["Nuclear medicine research", "Radiochemistry"],
+    "health_data": {
+      "risks": ["Intense radioactivity", "Alpha radiation", "High radiotoxicity"],
+      "safety_measures": ["Radiation shielding", "Remote handling", "Detection systems"]
+    }
+  },
+  "Rn": {
+    "name": "Radon",
+    "atomic_number": 86,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6",
+    "atomic_mass": 222,
+    "oxidation_states": [2, 6],
+    "melting_point": 202,
+    "boiling_point": 211.3,
+    "density": 0.00973,
+    "applications": ["Cancer treatment", "Geological research", "Building testing"],
+    "health_data": {
+      "risks": ["Radioactive gas", "Lung cancer risk", "Alpha emission"],
+      "safety_measures": ["Ventilation", "Detection", "Mitigation systems"]
+    }
+  },
+  "Fr": {
+    "name": "Francium",
+    "atomic_number": 87,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s1",
+    "atomic_mass": 223,
+    "oxidation_states": [1],
+    "melting_point": 300,
+    "boiling_point": 950,
+    "density": 1.87,
+    "applications": ["Research only", "Atomic structure studies"],
+    "health_data": {
+      "risks": ["Highly radioactive", "Intense radiation", "Short half-life"],
+      "safety_measures": ["Radiation containment", "Limited access", "Monitoring"]
+    }
+  },
+  "Ra": {
+    "name": "Radium",
+    "atomic_number": 88,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2",
+    "atomic_mass": 226,
+    "oxidation_states": [2],
+    "melting_point": 973,
+    "boiling_point": 2010,
+    "density": 5.5,
+    "applications": ["Historical luminous paint", "Cancer treatment", "Research"],
+    "health_data": {
+      "risks": ["High radioactivity", "Bone seeker", "Cancer risk"],
+      "safety_measures": ["Strict containment", "Radiation protection", "Monitoring"]
+    }
+  },
+  "Ac": {
+    "name": "Actinium",
+    "atomic_number": 89,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 6d1",
+    "atomic_mass": 227,
+    "oxidation_states": [3],
+    "melting_point": 1323,
+    "boiling_point": 3471,
+    "density": 10.07,
+    "applications": ["Research", "Neutron sources", "Medicine"],
+    "health_data": {
+      "risks": ["High radioactivity", "Internal hazard", "Bone seeker"],
+      "safety_measures": ["Radiation shielding", "Containment", "Monitoring"]
+    }
+  },
+  "Th": {
+    "name": "Thorium",
+    "atomic_number": 90,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 6d2",
+    "atomic_mass": 232.0377,
+    "oxidation_states": [2, 3, 4],
+    "melting_point": 2115,
+    "boiling_point": 5061,
+    "density": 11.724,
+    "applications": ["Nuclear fuel", "Gas mantles", "High-temp ceramics"],
+    "health_data": {
+      "risks": ["Radioactive", "Alpha emission", "Chemical toxicity"],
+      "safety_measures": ["Radiation protection", "Dust control", "Monitoring"]
+    }
+  },
+  "Pa": {
+    "name": "Protactinium",
+    "atomic_number": 91,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f2 6d1",
+    "atomic_mass": 231.03588,
+    "oxidation_states": [3, 4, 5],
+    "melting_point": 1841,
+    "boiling_point": 4300,
+    "density": 15.37,
+    "applications": ["Research", "Nuclear chemistry"],
+    "health_data": {
+      "risks": ["High radioactivity", "Alpha emission", "Radiotoxicity"],
+      "safety_measures": ["Strict containment", "Radiation safety", "Monitoring"]
+    }
+  },
+  "U": {
+    "name": "Uranium",
+    "atomic_number": 92,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f3 6d1",
+    "atomic_mass": 238.02891,
+    "oxidation_states": [3, 4, 5, 6],
+    "melting_point": 1405.3,
+    "boiling_point": 4404,
+    "density": 19.1,
+    "applications": ["Nuclear fuel", "Military applications", "Radiation shielding"],
+    "health_data": {
+      "risks": ["Radioactive", "Chemical toxicity", "Heavy metal poisoning"],
+      "safety_measures": ["Radiation protection", "Strict controls", "Monitoring"]
+    }
+  },
+  "Np": {
+    "name": "Neptunium",
+    "atomic_number": 93,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f4 6d1",
+    "atomic_mass": 237,
+    "oxidation_states": [3, 4, 5, 6, 7],
+    "melting_point": 917,
+    "boiling_point": 4273,
+    "density": 20.45,
+    "applications": ["Nuclear detection", "Research", "Power sources"],
+    "health_data": {
+      "risks": ["High radioactivity", "Internal hazard", "Alpha emission"],
+      "safety_measures": ["Containment", "Radiation safety", "Strict protocols"]
+    }
+  },
+  "Pu": {
+    "name": "Plutonium",
+    "atomic_number": 94,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f6",
+    "atomic_mass": 244,
+    "oxidation_states": [3, 4, 5, 6, 7],
+    "melting_point": 912.5,
+    "boiling_point": 3505,
+    "density": 19.816,
+    "applications": ["Nuclear weapons", "Power generation", "Space missions"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Cancer risk", "Bone seeker"],
+      "safety_measures": ["Maximum containment", "Strict security", "Monitoring"]
+    }
+  },
+  "Am": {
+    "name": "Americium",
+    "atomic_number": 95,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f7",
+    "atomic_mass": 243,
+    "oxidation_states": [2, 3, 4, 5, 6],
+    "melting_point": 1449,
+    "boiling_point": 2880,
+    "density": 13.69,
+    "applications": ["Smoke detectors", "Nuclear fuel", "Thickness gauges"],
+    "health_data": {
+      "risks": ["High radioactivity", "Internal hazard", "Long half-life"],
+      "safety_measures": ["Radiation shielding", "Strict controls", "Monitoring"]
+    }
+  },
+  "Cm": {
+    "name": "Curium",
+    "atomic_number": 96,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f7 6d1",
+    "atomic_mass": 247,
+    "oxidation_states": [3, 4],
+    "melting_point": 1613,
+    "boiling_point": 3383,
+    "density": 13.51,
+    "applications": ["Scientific research", "Alpha particle source", "Power generation"],
+    "health_data": {
+      "risks": ["Intense radioactivity", "Alpha emission", "Biological hazard"],
+      "safety_measures": ["Remote handling", "Radiation shielding", "Strict protocols"]
+    }
+  },
+  "Bk": {
+    "name": "Berkelium",
+    "atomic_number": 97,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f9",
+    "atomic_mass": 247,
+    "oxidation_states": [3, 4],
+    "melting_point": 1259,
+    "boiling_point": 2900,
+    "density": 14.78,
+    "applications": ["Nuclear research", "Element synthesis"],
+    "health_data": {
+      "risks": ["High radioactivity", "Internal exposure", "Alpha radiation"],
+      "safety_measures": ["Containment", "Radiation protection", "Monitoring"]
+    }
+  },
+  "Cf": {
+    "name": "Californium",
+    "atomic_number": 98,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f10",
+    "atomic_mass": 251,
+    "oxidation_states": [2, 3, 4],
+    "melting_point": 1173,
+    "boiling_point": 1743,
+    "density": 15.1,
+    "applications": ["Neutron source", "Metal detection", "Oil well logging"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Neutron emission", "High radiotoxicity"],
+      "safety_measures": ["Special facilities", "Remote handling", "Strict controls"]
+    }
+  },
+  "Es": {
+    "name": "Einsteinium",
+    "atomic_number": 99,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f11",
+    "atomic_mass": 252,
+    "oxidation_states": [2, 3],
+    "melting_point": 1133,
+    "boiling_point": 1269,
+    "density": 8.84,
+    "applications": ["Scientific research", "Element synthesis"],
+    "health_data": {
+      "risks": ["Intense radiation", "Short half-life", "High activity"],
+      "safety_measures": ["Special facilities", "Limited production", "Strict protocols"]
+    }
+  },
+  "Fm": {
+    "name": "Fermium",
+    "atomic_number": 100,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f12",
+    "atomic_mass": 257,
+    "oxidation_states": [2, 3],
+    "melting_point": 1800,
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Nuclear chemistry studies"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Short half-life", "High activity"],
+      "safety_measures": ["Specialized facilities", "Limited synthesis", "Strict controls"]
+    }
+  },
+  "Md": {
+    "name": "Mendelevium",
+    "atomic_number": 101,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f13",
+    "atomic_mass": 258,
+    "oxidation_states": [2, 3],
+    "melting_point": 1100,
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Chemical behavior studies"],
+    "health_data": {
+      "risks": ["Intense radiation", "Very short half-life", "High activity"],
+      "safety_measures": ["Special facilities", "Minimal quantities", "Strict protocols"]
+    }
+  },
+  "No": {
+    "name": "Nobelium",
+    "atomic_number": 102,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14",
+    "atomic_mass": 259,
+    "oxidation_states": [2, 3],
+    "melting_point": 1100,
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Atomic structure studies"],
+    "health_data": {
+      "risks": ["High radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Specialized facilities", "Limited synthesis", "Strict controls"]
+    }
+  },
+  "Lr": {
+    "name": "Lawrencium",
+    "atomic_number": 103,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 7p1",
+    "atomic_mass": 266,
+    "oxidation_states": [3],
+    "melting_point": 1900,
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Periodic table studies"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Special facilities", "Minimal synthesis", "Strict protocols"]
+    }
+  },
+  "Rf": {
+    "name": "Rutherfordium",
+    "atomic_number": 104,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d2",
+    "atomic_mass": 267,
+    "oxidation_states": [4],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Chemical properties studies"],
+    "health_data": {
+      "risks": ["High radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Specialized facilities", "Limited production", "Strict controls"]
+    }
+  },
+  "Db": {
+    "name": "Dubnium",
+    "atomic_number": 105,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d3",
+    "atomic_mass": 268,
+    "oxidation_states": [5],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Theoretical studies"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Special facilities", "Minimal synthesis", "Strict protocols"]
+    }
+  },
+  "Sg": {
+    "name": "Seaborgium",
+    "atomic_number": 106,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d4",
+    "atomic_mass": 269,
+    "oxidation_states": [6],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Chemical behavior studies"],
+    "health_data": {
+      "risks": ["High radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Special facilities", "Limited synthesis", "Strict controls"]
+    }
+  },
+  "Bh": {
+    "name": "Bohrium",
+    "atomic_number": 107,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d5",
+    "atomic_mass": 270,
+    "oxidation_states": [7],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Element synthesis studies"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Specialized facilities", "Minimal production", "Strict protocols"]
+    }
+  },
+  "Hs": {
+    "name": "Hassium",
+    "atomic_number": 108,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d6",
+    "atomic_mass": 269,
+    "oxidation_states": [8],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Periodic trends studies"],
+    "health_data": {
+      "risks": ["High radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Special facilities", "Limited synthesis", "Strict controls"]
+    }
+  },
+  "Mt": {
+    "name": "Meitnerium",
+    "atomic_number": 109,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d7",
+    "atomic_mass": 278,
+    "oxidation_states": [3, 4, 6],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Theoretical studies"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Specialized facilities", "Minimal synthesis", "Strict protocols"]
+    }
+  },
+  "Ds": {
+    "name": "Darmstadtium",
+    "atomic_number": 110,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d8",
+    "atomic_mass": 281,
+    "oxidation_states": [0, 2, 4, 6, 8],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Nuclear chemistry"],
+    "health_data": {
+      "risks": ["High radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Special facilities", "Limited production", "Strict controls"]
+    }
+  },
+  "Rg": {
+    "name": "Roentgenium",
+    "atomic_number": 111,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d9",
+    "atomic_mass": 282,
+    "oxidation_states": [1, 3, 5],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Atomic structure studies"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Specialized facilities", "Minimal synthesis", "Strict protocols"]
+    }
+  },
+  "Cn": {
+    "name": "Copernicium",
+    "atomic_number": 112,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10",
+    "atomic_mass": 285,
+    "oxidation_states": [2, 4],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Chemical properties studies"],
+    "health_data": {
+      "risks": ["High radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Special facilities", "Limited synthesis", "Strict controls"]
+    }
+  },
+  "Nh": {
+    "name": "Nihonium",
+    "atomic_number": 113,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p1",
+    "atomic_mass": 286,
+    "oxidation_states": [1, 3, 5],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Theoretical studies"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Specialized facilities", "Minimal production", "Strict protocols"]
+    }
+  },
+  "Fl": {
+    "name": "Flerovium",
+    "atomic_number": 114,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p2",
+    "atomic_mass": 289,
+    "oxidation_states": [2, 4],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Nuclear chemistry"],
+    "health_data": {
+      "risks": ["High radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Special facilities", "Limited synthesis", "Strict controls"]
+    }
+  },
+  "Mc": {
+    "name": "Moscovium",
+    "atomic_number": 115,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p3",
+    "atomic_mass": 290,
+    "oxidation_states": [1, 3],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Element synthesis studies"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Specialized facilities", "Minimal production", "Strict protocols"]
+    }
+  },
+  "Lv": {
+    "name": "Livermorium",
+    "atomic_number": 116,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p4",
+    "atomic_mass": 293,
+    "oxidation_states": [-2, 2, 4],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Superheavy element studies"],
+    "health_data": {
+      "risks": ["High radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Special facilities", "Limited synthesis", "Strict controls"]
+    }
+  },
+  "Ts": {
+    "name": "Tennessine",
+    "atomic_number": 117,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p5",
+    "atomic_mass": 294,
+    "oxidation_states": [-1, 1, 3, 5],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Theoretical chemistry"],
+    "health_data": {
+      "risks": ["Extreme radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Specialized facilities", "Minimal synthesis", "Strict protocols"]
+    }
+  },
+  "Og": {
+    "name": "Oganesson",
+    "atomic_number": 118,
+    "electron_config": "1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6 5s2 4d10 5p6 6s2 4f14 5d10 6p6 7s2 5f14 6d10 7p6",
+    "atomic_mass": 294,
+    "oxidation_states": [0, 2, 4],
+    "melting_point": "Unknown",
+    "boiling_point": "Unknown",
+    "density": "Unknown",
+    "applications": ["Research only", "Noble gas studies"],
+    "health_data": {
+      "risks": ["High radioactivity", "Very short half-life", "Limited data"],
+      "safety_measures": ["Special facilities", "Limited production", "Strict controls"]
+    }
+  }
+}

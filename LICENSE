@@ -1,0 +1,28 @@
+COPYRIGHT (c) TheHolyOneZ 2025
+
+CORE BOT IMPLEMENTATION LICENSE:
+The ZygnalBot class and its direct implementation (lines 106 - 451) are proprietary and protected under copyright.
+See copyright notice on line 7 for exceptions.
+
+- You may not modify the core implementation, except for changing Emojis and Status.
+- You may not edit or change any instance of the name zygnalbot, ZygnalBot, Zygnal, .gg/U8sssc6xbv, TheZ, TheHolyOneZ.
+- You may not remove or alter this notice.
+- You may not remove, disable or modify any status tracking, analytics or reporting functionality.
+- Redistribution of the core implementation requires explicit written permission.
+
+GENERAL MIT LICENSE (All Other Code):
+Permission is hereby granted, free of charge, to any person obtaining a copy of the non-core portions of this
+software and associated documentation files, to use these portions without restriction, including, but not limited to,
+the rights to:
+
+- Use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software,
+  subject to the following conditions:
+
+1. The above copyright and dual-license notice must be included in all copies.
+2. The core implementation remains protected as specified above.
+3. Status tracking and analytics systems must remain intact and functional.
+
+THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT,
+OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
