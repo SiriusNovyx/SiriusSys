@@ -87,7 +87,6 @@ from cogs_manager import CogManager
 from Z_Sort import ZSortCommands
 from auto_config_loader import AutoConfigLoader
 from RuleMaker import RuleMaker
-async def setup
 
 from extension_marketplace import ExtensionMarketplace
 
