@@ -1,4 +1,3 @@
-
 import discord
 from discord.ext import commands
 import aiohttp
@@ -8,14 +7,16 @@ import asyncio
 import logging
 from datetime import datetime
 import re
+import io
 
 logger = logging.getLogger(__name__)
 
 class ExtensionMarketplace(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.api_url = "https://zygnalbot.de/get_extensions.php"
+        self.api_url = "https://zygnalbot.com/extension/api/extensions.php?action=list"
         self.extensions_folder = "Extensions"
+        self.zygnal_id_file = "ZygnalID.txt"
         self.cache = {}
         self.cache_time = None
         self.cache_duration = 300
@@ -35,42 +36,98 @@ class ExtensionMarketplace(commands.Cog):
                         else:
                             logger.error("API returned success: false")
                             return None
+                    elif response.status == 429:
+                        return {"error": "Rate limit exceeded. Please try again in a moment."}
                     else:
                         logger.error(f"API request failed with status {response.status}")
-                        return None
+                        return {"error": f"API request failed with status {response.status}"}
         except Exception as e:
             logger.error(f"Error fetching extensions: {e}")
-            return None
+            return {"error": f"Error fetching extensions: {e}"}
     
     async def download_extension(self, extension_data):
+        if not self.extensions_folder or not isinstance(self.extensions_folder, str):
+            error_msg = "The download file path (Extensions folder) is not configured correctly."
+            logger.error(error_msg)
+            return None, error_msg
         try:
+            zygnal_id = await self.ensure_zygnal_id()
+            if not zygnal_id:
+                error_msg = "Could not read or generate a ZygnalID. Please check file permissions for ZygnalID.txt."
+                logger.error(error_msg)
+                return None, error_msg
+            query_suffix = f"&zygnalid={zygnal_id}"
             if extension_data.get('customUrl'):
-                download_url = extension_data['customUrl']
+                base_url = extension_data['customUrl']
+                if base_url.startswith('http') and zygnal_id:
+                    sep = '&' if ('?' in base_url) else '?'
+                    download_url = f"{base_url}{sep}zygnalid={zygnal_id}"
+                else:
+                    download_url = base_url
             else:
                 extension_id = extension_data['id']
-                download_url = f"https://zygnalbot.de/download_extension.php?id={extension_id}"
-            
+                download_url = f"https://zygnalbot.com/extension/download.php?id={extension_id}{query_suffix}"
             async with aiohttp.ClientSession() as session:
                 async with session.get(download_url, timeout=60) as response:
+                    response_text = await response.text()
                     if response.status == 200:
-                        content = await response.text()
+                        if "invalid" in response_text.lower() and "zygnalid" in response_text.lower() or "not activated" in response_text.lower():
+                            error_message = (
+                                "Your ZygnalID is invalid or not activated. "
+                                "Please use the `marketplace myid` command to view your ZygnalID. "
+                                "Then, open a ticket in the ZygnalBot support server and provide the ID to have it enabled."
+                            )
+                            logger.error(f"Download failed: {error_message}")
+                            return None, error_message
                         filename = f"{extension_data['title'].replace(' ', '_').lower()}.{extension_data['fileType']}"
                         filename = re.sub(r'[^\w\-_\.]', '', filename)
                         filepath = os.path.join(self.extensions_folder, filename)
-                        
                         if not os.path.exists(self.extensions_folder):
                             os.makedirs(self.extensions_folder)
-                        
                         with open(filepath, 'w', encoding='utf-8') as f:
-                            f.write(content)
-                        
-                        return filepath
+                            f.write(response_text)
+                        return filepath, "Success"
+                    elif response.status == 429:
+                        error_message = f"Download failed due to rate limiting. You can download a maximum of 5 files every 2 minutes."
+                        logger.error(error_message)
+                        return None, error_message
                     else:
-                        logger.error(f"Download failed with status {response.status}")
-                        return None
+                        error_message = f"Download failed with status code: {response.status}."
+                        if response_text and not response_text.strip().startswith("<!DOCTYPE html>"):
+                            error_message = f"The server returned an error: {response_text}"
+                        logger.error(f"Download failed: {error_message}")
+                        return None, error_message
+        except aiohttp.ClientConnectorError as e:
+            error_msg = f"Network connection error: Could not connect to the download server. Details: {e}"
+            logger.error(error_msg)
+            return None, error_msg
+        except asyncio.TimeoutError:
+            error_msg = "The download request timed out. The server might be busy or down."
+            logger.error(error_msg)
+            return None, error_msg
         except Exception as e:
-            logger.error(f"Error downloading extension: {e}")
-            return None
+            error_msg = f"An unexpected error occurred during download: {e}"
+            logger.error(error_msg)
+            return None, error_msg
+
+    async def ensure_zygnal_id(self) -> str:
+        try:
+            if os.path.exists(self.zygnal_id_file):
+                with open(self.zygnal_id_file, 'r', encoding='utf-8') as f:
+                    val = f.read().strip()
+                return val
+            import secrets
+            alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+            new_id = ''.join(secrets.choice(alphabet) for _ in range(16))
+            with open(self.zygnal_id_file, 'w', encoding='utf-8') as f:
+                f.write(new_id)
+            return new_id
+        except Exception as gen_err:
+            logger.error(f"Failed to generate/read ZygnalID: {gen_err}")
+            return ""
+
+    def _is_valid_zygnal_id(self, value: str) -> bool:
+        return isinstance(value, str) and bool(re.fullmatch(r"[A-Za-z0-9]{16}", value))
     
     @commands.group(name='marketplace', aliases=['mp', 'extensions'], invoke_without_command=True)
     @commands.has_permissions(administrator=True)
@@ -84,6 +141,7 @@ class ExtensionMarketplace(commands.Cog):
         await self.show_marketplace_menu_slash(interaction)
     
     async def show_marketplace_menu(self, ctx):
+        await self.ensure_zygnal_id()
         embed = discord.Embed(
             title="🛒 Extension Marketplace",
             description="Browse, preview, and install extensions directly to your bot!",
@@ -96,7 +154,8 @@ class ExtensionMarketplace(commands.Cog):
                   f"`{ctx.prefix}marketplace categories` - Browse by category\n"
                   f"`{ctx.prefix}marketplace install <id>` - Install extension\n"
                   f"`{ctx.prefix}marketplace info <id>` - View extension details\n"
-                  f"`{ctx.prefix}marketplace refresh` - Refresh extension list",
+                  f"`{ctx.prefix}marketplace refresh` - Refresh extension list\n"
+                  f"`{ctx.prefix}mp myid` - permission required: be bot owner",
             inline=False
         )
         embed.add_field(
@@ -104,11 +163,12 @@ class ExtensionMarketplace(commands.Cog):
             value="Use the buttons below for quick access to marketplace features!",
             inline=False
         )
-        embed.set_footer(text="Made By TheHolyOneZ • Extension Marketplace v1.0")
+        embed.set_footer(text="ZygnalBot • Extension Marketplace v2.0")
         view = MarketplaceMenuView(self)
         await ctx.send(embed=embed, view=view)
     
     async def show_marketplace_menu_slash(self, interaction: discord.Interaction):
+        await self.ensure_zygnal_id()
         embed = discord.Embed(
             title="🛒 Extension Marketplace",
             description="Browse, preview, and install extensions directly to your bot!",
@@ -136,10 +196,11 @@ class ExtensionMarketplace(commands.Cog):
     async def browse_extensions(self, ctx, page: int = 1):
         await ctx.send("🔄 Loading extensions from marketplace...")
         data = await self.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -155,10 +216,11 @@ class ExtensionMarketplace(commands.Cog):
     async def search_extensions(self, ctx, *, query: str):
         await ctx.send(f"🔍 Searching for '{query}'...")
         data = await self.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -191,10 +253,11 @@ class ExtensionMarketplace(commands.Cog):
     @commands.has_permissions(administrator=True)
     async def extension_info(self, ctx, extension_id: int):
         data = await self.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -219,10 +282,11 @@ class ExtensionMarketplace(commands.Cog):
     @commands.has_permissions(administrator=True)
     async def install_extension(self, ctx, extension_id: int):
         data = await self.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -272,13 +336,37 @@ class ExtensionMarketplace(commands.Cog):
                 color=discord.Color.green()
             )
         else:
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Refresh Failed",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
         embed.set_footer(text="Made By TheHolyOneZ")
         await message.edit(embed=embed)
+
+    @marketplace_group.command(name='myid')
+    async def myid(self, ctx):
+        bot_owner_id = os.environ.get('BOT_OWNER_ID')
+        if not bot_owner_id or str(ctx.author.id) != bot_owner_id:
+            await ctx.send("This command can only be used by the bot owner.", delete_after=10)
+            return
+
+        zygnal_id = await self.ensure_zygnal_id()
+        if zygnal_id:
+            embed = discord.Embed(
+                title="🔑 Your ZygnalID",
+                description=f"This is your unique ZygnalID for the extension marketplace. If an extension fails to download due to an invalid ID, open a support ticket and provide this ID.",
+                color=discord.Color.blue()
+            )
+            embed.add_field(name="ID", value=f"```{zygnal_id}```")
+            try:
+                await ctx.author.send(embed=embed)
+                await ctx.message.add_reaction('✅')
+            except discord.Forbidden:
+                await ctx.send("I couldn't send you a DM. Please check your privacy settings.", delete_after=10)
+        else:
+            await ctx.send("❌ Could not read or generate a ZygnalID. Check file permissions for `ZygnalID.txt`.", delete_after=10)
 
 class MarketplaceMenuView(discord.ui.View):
     def __init__(self, cog):
@@ -289,10 +377,11 @@ class MarketplaceMenuView(discord.ui.View):
     async def browse_all(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.defer()
         data = await self.cog.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -312,10 +401,11 @@ class MarketplaceMenuView(discord.ui.View):
     async def browse_categories(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.defer()
         data = await self.cog.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -358,9 +448,10 @@ class MarketplaceMenuView(discord.ui.View):
                 color=discord.Color.green()
             )
         else:
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Refresh Failed",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
         embed.set_footer(text="Made By TheHolyOneZ")
@@ -384,10 +475,11 @@ class SearchModal(discord.ui.Modal):
         query = self.search_query.value
         
         data = await self.cog.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -493,19 +585,19 @@ class ExtensionBrowserView(discord.ui.View):
         self.clear_items()
         
         if self.page > 1:
-            prev_button = discord.ui.Button(label="◀️ Previous", style=discord.ButtonStyle.secondary)
+            prev_button = discord.ui.Button(label='< Previous', style=discord.ButtonStyle.secondary)
             prev_button.callback = self.previous_page
             self.add_item(prev_button)
         
         if self.page < self.max_pages:
-            next_button = discord.ui.Button(label="Next ▶️", style=discord.ButtonStyle.secondary)
+            next_button = discord.ui.Button(label='Next >', style=discord.ButtonStyle.secondary)
             next_button.callback = self.next_page
             self.add_item(next_button)
         
         page_extensions = self.get_page_extensions()
         for ext in page_extensions:
             install_button = discord.ui.Button(
-                label=f"📦 Install {ext['title'][:20]}",
+                label=f"Install {ext['title'][:20]}",
                 style=discord.ButtonStyle.success,
                 custom_id=f"install_{ext['id']}"
             )
@@ -582,12 +674,12 @@ class ExtensionDetailView(discord.ui.View):
         self.cog = cog
         self.extension = extension
         
-        install_button = discord.ui.Button(label="📦 Install Extension", style=discord.ButtonStyle.success)
+        install_button = discord.ui.Button(label='📦 Install Extension', style=discord.ButtonStyle.success)
         install_button.callback = self.install_extension
         self.add_item(install_button)
         
         if extension.get('customUrl'):
-            view_source_button = discord.ui.Button(label="🔗 View Source", style=discord.ButtonStyle.link, url=extension['customUrl'])
+            view_source_button = discord.ui.Button(label='🔗 View Source', style=discord.ButtonStyle.link, url=extension['customUrl'])
             self.add_item(view_source_button)
     
     def create_detail_embed(self):
@@ -608,8 +700,11 @@ class ExtensionDetailView(discord.ui.View):
         embed.add_field(name="🔗 Custom URL", value="Yes" if ext.get('customUrl') else "No", inline=True)
         
         if ext.get('details'):
-            details = ext['details'][:1000] + "..." if len(ext['details']) > 1000 else ext['details']
-            embed.add_field(name="📋 Details", value=details, inline=False)
+            details = ext['details']
+            if len(details) > 1024:
+                embed.add_field(name="📋 Details", value="Details are too long to display and are attached in the file below.", inline=False)
+            else:
+                embed.add_field(name="📋 Details", value=details, inline=False)
         
         embed.set_footer(text="Made By TheHolyOneZ • Extension Marketplace")
         return embed
@@ -624,16 +719,31 @@ class ExtensionDetailView(discord.ui.View):
         embed.add_field(name="Version", value=self.extension['version'], inline=True)
         embed.add_field(name="Status", value=self.extension['status'].title(), inline=True)
         embed.add_field(name="File Type", value=self.extension['fileType'].upper(), inline=True)
+        embed.add_field(name="Description", value=self.extension['description'][:500] + "..." if len(self.extension['description']) > 500 else self.extension['description'], inline=False)
         embed.set_footer(text="Made By TheHolyOneZ • This will download and save the extension to your Extensions folder")
         await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
     
     async def show_details(self, ctx):
         embed = self.create_detail_embed()
-        await ctx.send(embed=embed, view=self)
+        details_file = None
+        details = self.extension.get('details')
+        if details and len(details) > 1024:
+            details_file = discord.File(
+                io.StringIO(details),
+                filename=f"{self.extension['title'].replace(' ', '_')}_details.txt"
+            )
+        await ctx.send(embed=embed, view=self, file=details_file)
     
     async def show_details_interaction(self, interaction: discord.Interaction):
         embed = self.create_detail_embed()
-        await interaction.response.send_message(embed=embed, view=self, ephemeral=True)
+        details_file = None
+        details = self.extension.get('details')
+        if details and len(details) > 1024:
+            details_file = discord.File(
+                io.StringIO(details),
+                filename=f"{self.extension['title'].replace(' ', '_')}_details.txt"
+            )
+        await interaction.response.send_message(embed=embed, view=self, file=details_file, ephemeral=True)
 
 class InstallConfirmView(discord.ui.View):
     def __init__(self, cog, extension):
@@ -641,7 +751,7 @@ class InstallConfirmView(discord.ui.View):
         self.cog = cog
         self.extension = extension
     
-    @discord.ui.button(label="✅ Confirm Install", style=discord.ButtonStyle.success)
+    @discord.ui.button(label='✅ Confirm Install', style=discord.ButtonStyle.success)
     async def confirm_install(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.defer()
         
@@ -651,9 +761,9 @@ class InstallConfirmView(discord.ui.View):
             color=discord.Color.blue()
         )
         embed.set_footer(text="Made By TheHolyOneZ")
-        await interaction.followup.edit_message(interaction.message.id, embed=embed, view=None)
+        await interaction.edit_original_response(embed=embed, view=None)
         
-        filepath = await self.cog.download_extension(self.extension)
+        filepath, message = await self.cog.download_extension(self.extension)
         
         if filepath:
             try:
@@ -682,15 +792,16 @@ class InstallConfirmView(discord.ui.View):
         else:
             embed = discord.Embed(
                 title="❌ Installation Failed",
-                description=f"Failed to download **{self.extension['title']}**",
+                description=f"Failed to download **{self.extension['title']}**.",
                 color=discord.Color.red()
             )
-            embed.add_field(name="🔍 Troubleshooting", value="• Check your internet connection\n• Verify the extension URL is accessible\n• Check bot permissions for file writing", inline=False)
+            embed.add_field(name="Error Details", value=message, inline=False)
+            embed.add_field(name="🔍 Troubleshooting", value="• Check the error details above.\n• Ensure the bot has permissions to write files in its directory.\n• Verify your internet connection.", inline=False)
         
         embed.set_footer(text="Made By TheHolyOneZ")
         await interaction.edit_original_response(embed=embed, view=None)
     
-    @discord.ui.button(label="❌ Cancel", style=discord.ButtonStyle.danger)
+    @discord.ui.button(label='❌ Cancel', style=discord.ButtonStyle.danger)
     async def cancel_install(self, interaction: discord.Interaction, button: discord.ui.Button):
         embed = discord.Embed(
             title="❌ Installation Cancelled",
@@ -701,7 +812,6 @@ class InstallConfirmView(discord.ui.View):
         await interaction.response.edit_message(embed=embed, view=None)
 
 
-# Slash Commands
 @discord.app_commands.command(name='marketplace-browse', description='Browse all available extensions')
 @discord.app_commands.default_permissions(administrator=True)
 async def marketplace_browse_slash(interaction: discord.Interaction, page: int = 1):
@@ -709,10 +819,11 @@ async def marketplace_browse_slash(interaction: discord.Interaction, page: int =
     if cog:
         await interaction.response.defer()
         data = await cog.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -730,10 +841,11 @@ async def marketplace_search_slash(interaction: discord.Interaction, query: str)
     if cog:
         await interaction.response.defer()
         data = await cog.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -769,10 +881,11 @@ async def marketplace_install_slash(interaction: discord.Interaction, extension_
     if cog:
         await interaction.response.defer()
         data = await cog.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -810,10 +923,11 @@ async def marketplace_info_slash(interaction: discord.Interaction, extension_id:
     if cog:
         await interaction.response.defer()
         data = await cog.fetch_extensions()
-        if not data or not data.get('extensions'):
+        if not data or data.get('error'):
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Error",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
             embed.set_footer(text="Made By TheHolyOneZ")
@@ -848,9 +962,10 @@ async def marketplace_refresh_slash(interaction: discord.Interaction):
                 color=discord.Color.green()
             )
         else:
+            error_message = data.get('error', "Failed to fetch extensions from marketplace!")
             embed = discord.Embed(
                 title="❌ Refresh Failed",
-                description="Failed to fetch extensions from marketplace!",
+                description=error_message,
                 color=discord.Color.red()
             )
         embed.set_footer(text="Made By TheHolyOneZ")
@@ -858,11 +973,3 @@ async def marketplace_refresh_slash(interaction: discord.Interaction):
 
 async def setup(bot):
     await bot.add_cog(ExtensionMarketplace(bot))
-
-"""
-you can change the "async def setup"
-to a "def setup(bot) to adjust it (make it to a normal extension)
-
-Extra info: async def setup is just the modern/current standard its still a extension
-but zygnalbot ext. loader mainly uses older setups like: def setup(bot)
-"""
