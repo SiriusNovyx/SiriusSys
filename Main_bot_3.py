@@ -79,6 +79,7 @@ from anthropic import Anthropic
 import anthropic
 import uuid
 from googletrans import Translator
+from keep_alive import keep_alive
 
 # Local Modules (.py)
 from update_checker import UpdateChecker
@@ -455,7 +456,7 @@ class ZygnalBot(commands.Bot):
         await super().close()
                                              
 bot = ZygnalBot()
-
+keep_alive()
 
 """Below Is Not Tested/Not Fully Implented and Wont Work Correctly"""
 
