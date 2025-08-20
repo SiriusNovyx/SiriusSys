@@ -1,3 +1,42 @@
+"""
+CUSTOM LICENSE AGREEMENT FOR ZYGNALBOT EXTENSION
+Copyright © 2025 TheHolyOneZ (TheZ)
+All Rights Reserved
+
+1. DEFINITIONS
+1.1. "Extension" refers to the software files, code, assets, and all associated materials released under this license.
+1.2. "Emoji" refers only to image files in formats such as PNG, JPG, GIF, or WebP located in the designated emoji asset folders within the Extension.
+1.3. "Authorized User" refers solely to individuals who are actively using the Discord bot known as "ZygnalBot" (case-insensitive) in accordance with its official terms of service.
+1.4. "ZygnalID" refers to the unique user identifier assigned by ZygnalBot to its authorized users.
+
+2. GRANT OF LIMITED PERMISSION
+2.1. Authorized Users are granted a non-exclusive, non-transferable, and revocable permission to:
+    - Edit, replace, or add to the emoji files within the Extension.
+2.2. No other rights are granted. All rights not expressly granted are reserved by TheHolyOneZ (TheZ).
+
+3. PROHIBITED ACTIONS
+The following actions are strictly forbidden without prior written consent from TheHolyOneZ (TheZ):
+3.1. Editing, altering, deleting, renaming, moving, or otherwise modifying any files within the Extension that are not emoji files.
+3.2. Altering, obscuring, or removing:
+    - The copyright notice contained within this file.
+    - Any mention of the names "ZygnalBot", "zygnalbot", "TheHolyOneZ", or "TheZ".
+3.3. Distributing, sublicensing, selling, leasing, renting, or otherwise transferring the Extension, in whole or in part, outside of ZygnalBot.
+3.4. Using the Extension in any other software or platform without explicit authorization.
+
+4. ENFORCEMENT & CONSEQUENCES
+4.1. If any of the names "ZygnalBot", "zygnalbot", "TheHolyOneZ", or "TheZ" are removed, altered, obscured, or tampered with in any way:
+    - The violator's ZygnalID will be immediately deactivated and permanently flagged to prevent reactivation.
+    - The violator will be banned from any future participation in ZygnalBot services.
+    - The violation will be logged and may be shared with other ZygnalBot administrators and services to prevent further abuse.
+4.2. No exceptions will be made for accidental or unintentional changes.
+
+5. ACKNOWLEDGMENT
+By using, downloading, installing, or modifying this Extension, you acknowledge that you have read, understood, and agree to be bound by the terms of this license.
+
+END OF LICENSE
+"""
+
+
 import discord
 from discord.ext import commands
 import aiohttp

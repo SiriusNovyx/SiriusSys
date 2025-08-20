@@ -79,7 +79,6 @@ from anthropic import Anthropic
 import anthropic
 import uuid
 from googletrans import Translator
-from keep_alive import keep_alive
 
 # Local Modules (.py)
 from update_checker import UpdateChecker
@@ -95,7 +94,7 @@ logging.getLogger('discord.client').setLevel(logging.ERROR)
 logging.getLogger('discord.gateway').setLevel(logging.ERROR)
 
 load_dotenv()
-ZygnalBot_Version = "V7.9.6"
+ZygnalBot_Version = "V7.9.7"
 
 def analyze_emoji_usage(content):
     emoji_count = {}
@@ -456,7 +455,6 @@ class ZygnalBot(commands.Bot):
         await super().close()
                                              
 bot = ZygnalBot()
-keep_alive()
 
 
 """Below Is Not Tested/Not Fully Implented and Wont Work Correctly"""
@@ -28275,17 +28273,19 @@ class RatingSystem(commands.Cog):
 class BotVerificationSystem(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.whitelist_file = "data/whitelisted_bots.json"
+        self.data_dir = "data"
+        self.whitelists_file = os.path.join(self.data_dir, "guild_whitelists.json")
+        self.roles_file = os.path.join(self.data_dir, "whitelist_roles.json")
         
-        os.makedirs(os.path.dirname(self.whitelist_file), exist_ok=True)
+        os.makedirs(self.data_dir, exist_ok=True)
         
-        self.bot_whitelist = self.load_whitelist()
+        self.guild_whitelists = self._load_json(self.whitelists_file, as_sets=True)
+        self.whitelist_roles = self._load_json(self.roles_file)
         
-        owner_id_str = os.getenv('BOT_OWNER_ID', '0')
         try:
-            self.owner_id = int(owner_id_str)
+            self.owner_id = int(os.getenv('BOT_OWNER_ID', '0'))
         except ValueError:
-            print(f"Invalid BOT_OWNER_ID in environment: {owner_id_str}")
+            print(f"Invalid BOT_OWNER_ID in environment.")
             self.owner_id = 0
         
         self.log_channel_id = os.getenv("BOT_JOIN_LOG_CHANNEL")
@@ -28293,309 +28293,247 @@ class BotVerificationSystem(commands.Cog):
         self.kick_unwhitelisted_bots = os.getenv("KICK_UNWHITELISTED_BOTS", "True").lower() == "true"
         
         self.bot_log_channels = {}
-        
         self.whitelist_attempts = {}
         self.MAX_ATTEMPTS = 5
-        self.ATTEMPT_RESET = 300  
+        self.ATTEMPT_RESET = 300
 
-    def load_whitelist(self):
-        
-        whitelist = set()
-        
-        env_bots = os.getenv('WHITELISTED_BOTS', '')
-        for bot_id in env_bots.split(','):
-            if bot_id.strip():
-                try:
-                    whitelist.add(int(bot_id.strip()))
-                except ValueError:
-                    pass
-        
+    def _load_json(self, file_path, as_sets=False):
+        if not os.path.exists(file_path):
+            return {}
         try:
-            if os.path.exists(self.whitelist_file):
-                with open(self.whitelist_file, 'r') as f:
-                    file_whitelist = json.load(f)
-                    for bot_id in file_whitelist:
-                        whitelist.add(int(bot_id))
-        except Exception as e:
-            print(f"Error loading whitelist file: {e}")
-        
-        self.save_whitelist(whitelist)
-        return whitelist
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                return {k: set(v) for k, v in data.items()} if as_sets else data
+        except (json.JSONDecodeError, IOError):
+            return {}
 
-    def save_whitelist(self, whitelist=None):
-        
+    def _save_json(self, file_path, data, from_sets=False):
         try:
-            if whitelist is None:
-                whitelist = self.bot_whitelist
-            with open(self.whitelist_file, 'w') as f:
-                json.dump(list(whitelist), f)
-        except Exception as e:
-            print(f"Error saving whitelist: {e}")
+            with open(file_path, 'w', encoding='utf-8') as f:
+                serializable_data = {k: list(v) for k, v in data.items()} if from_sets else data
+                json.dump(serializable_data, f, indent=4)
+        except IOError as e:
+            print(f"Error saving {file_path}: {e}")
 
     def validate_bot_id(self, bot_id: int) -> bool:
-        
         if not (17 <= len(str(bot_id)) <= 20):
             return False
-        
         discord_epoch = 1420070400000
         timestamp = ((bot_id >> 22) + discord_epoch) / 1000
         return discord_epoch/1000 <= timestamp <= time.time() and bot_id != 0
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        if not member.bot or member.id in self.bot_whitelist:
+        if not member.guild: return
+
+        guild_id_str = str(member.guild.id)
+        guild_whitelist = self.guild_whitelists.get(guild_id_str, set())
+
+        if not member.bot or member.id in guild_whitelist:
             return
 
         if self.kick_unwhitelisted_bots:
             try:
-                await member.kick(reason="Bot not in whitelist")
-                
+                await member.kick(reason="Bot not in this server's whitelist")
                 embed = discord.Embed(
                     title="🤖 Unauthorized Bot Detected",
                     description=(
                         f"**Bot:** {member.name} (`{member.id}`)\n"
                         f"**Action:** Kicked\n"
-                        f"**Reason:** Not in whitelist\n"
+                        f"**Reason:** Not in server whitelist\n"
                         f"**Guild:** {member.guild.name}\n"
                         f"**Time:** <t:{int(time.time())}:F>"
                     ),
                     color=discord.Color.red(),
                     timestamp=datetime.now(timezone.utc)
-                )
-                embed.set_footer(text=f"Security Event ID: {hex(member.id)}")
+                ).set_footer(text=f"Security Event ID: {hex(member.id)}")
                 
-                if str(member.guild.id) in self.bot_log_channels:
-                    channel_id = self.bot_log_channels[str(member.guild.id)]
-                    channel = member.guild.get_channel(channel_id)
-                    if channel:
-                        await channel.send(embed=embed)
-                
+                if guild_id_str in self.bot_log_channels:
+                    channel = member.guild.get_channel(self.bot_log_channels[guild_id_str])
+                    if channel: await channel.send(embed=embed)
             except discord.Forbidden:
-                if str(member.guild.id) in self.bot_log_channels:
-                    channel = member.guild.get_channel(self.bot_log_channels[str(member.guild.id)])
+                if guild_id_str in self.bot_log_channels:
+                    channel = member.guild.get_channel(self.bot_log_channels[guild_id_str])
                     if channel:
-                        await channel.send(
-                            embed=discord.Embed(
-                                title="⚠️ Permission Error",
-                                description="Failed to kick unauthorized bot due to missing permissions",
-                                color=discord.Color.orange()
-                            )
-                        )
+                        await channel.send(embed=discord.Embed(
+                            title="⚠️ Permission Error",
+                            description="Failed to kick unauthorized bot due to missing permissions.",
+                            color=discord.Color.orange()
+                        ))
 
         if self.monitor_joins:
             await self.send_bot_join_notification(member)
 
     async def send_bot_join_notification(self, member):
-       
-        if not self.monitor_joins:
-            return
-            
-        if not self.log_channel_id or self.log_channel_id.lower() == "none":
-            
-            private_channels = []
-            public_channels = []
-            
-            for channel in member.guild.text_channels:
-                
-                if not channel.permissions_for(member.guild.me).send_messages:
-                    continue
-                    
-                everyone_role = member.guild.default_role
-                if not channel.permissions_for(everyone_role).view_channel:
-                    private_channels.append(channel)
-                else:
-                    public_channels.append(channel)
-            
-            if private_channels:
-                log_channel = random.choice(private_channels)
-            elif member.guild.system_channel:
+        if not self.monitor_joins: return
+        log_channel = None
+        if self.log_channel_id and self.log_channel_id.lower() != "none":
+            try: log_channel = self.bot.get_channel(int(self.log_channel_id))
+            except (ValueError, TypeError): pass
+        
+        if not log_channel:
+            if member.guild.system_channel and member.guild.system_channel.permissions_for(member.guild.me).send_messages:
                 log_channel = member.guild.system_channel
-            elif public_channels:
-                log_channel = random.choice(public_channels)
             else:
-              
-                return
-        else:
-            try:
-                log_channel = self.bot.get_channel(int(self.log_channel_id))
-                if not log_channel:
-                   
-                    if member.guild.system_channel:
-                        log_channel = member.guild.system_channel
-                    else:
-                        
-                        for channel in member.guild.text_channels:
-                            if channel.permissions_for(member.guild.me).send_messages:
-                                log_channel = channel
-                                break
-                        else:
-                            return 
-            except ValueError:
-            
-                if member.guild.system_channel:
-                    log_channel = member.guild.system_channel
-                else:
-                   
-                    for channel in member.guild.text_channels:
-                        if channel.permissions_for(member.guild.me).send_messages:
-                            log_channel = channel
-                            break
-                    else:
-                        return  
+                for channel in member.guild.text_channels:
+                    if channel.permissions_for(member.guild.me).send_messages:
+                        log_channel = channel
+                        break
+        if not log_channel: return
         
         try:
             cmd_prefix = self.bot.command_prefix
-            if callable(cmd_prefix):
-                cmd_prefix = cmd_prefix(self.bot, None)
-            if isinstance(cmd_prefix, list):
-                cmd_prefix = cmd_prefix[0]
-        except:
-            cmd_prefix = "!" 
+            if callable(cmd_prefix): cmd_prefix = cmd_prefix(self.bot, None)
+            if isinstance(cmd_prefix, list): cmd_prefix = cmd_prefix[0]
+        except: cmd_prefix = "!"
         
         embed = discord.Embed(
             title="🤖 Bot Joined Server",
-            description=f"A new bot has joined the server: **{member.name}**",
+            description=f"A new bot has joined: **{member.name}**",
             color=discord.Color.orange()
         )
-        
-        embed.add_field(
-            name="Bot Information",
-            value=f"**Name:** {member.name}\n**ID:** {member.id}\n**Created:** {member.created_at.strftime('%Y-%m-%d')}"
-        )
-        
-        embed.add_field(
-            name="Whitelist Instructions",
-            value=f"If you added this bot, please whitelist it using:\n```{cmd_prefix}whitelist_bot {member.id}```",
-            inline=False
-        )
-        
-        avatar_url = member.avatar.url if hasattr(member, 'avatar') else member.avatar_url
-        embed.set_thumbnail(url=avatar_url)
-        embed.set_footer(text="Unwhitelisted bots may be removed for security")
-        
+        embed.add_field(name="Bot Information", value=f"**Name:** {member.name}\n**ID:** {member.id}")
+        embed.add_field(name="Whitelist Instructions", value=f"To allow this bot, use:\n```{cmd_prefix}whitelist_bot {member.id}```", inline=False)
+        if member.display_avatar: embed.set_thumbnail(url=member.display_avatar.url)
+        embed.set_footer(text="Unwhitelisted bots may be removed for security.")
         await log_channel.send(embed=embed)
 
+    @commands.command(name="set_whitelist_role")
+    @commands.guild_only()
+    async def set_whitelist_role(self, ctx, role: discord.Role = None):
+        if not (ctx.author == ctx.guild.owner or ctx.author.id == self.owner_id):
+            return await ctx.send(embed=discord.Embed(
+                title="❌ Access Denied",
+                description="Only the server owner or bot owner can use this command.",
+                color=discord.Color.red()
+            ))
+
+        guild_id_str = str(ctx.guild.id)
+        if role:
+            self.whitelist_roles[guild_id_str] = role.id
+            self._save_json(self.roles_file, self.whitelist_roles)
+            await ctx.send(embed=discord.Embed(
+                title="✅ Role Set",
+                description=f"Members with the {role.mention} role can now whitelist bots.",
+                color=discord.Color.green()
+            ))
+        else:
+            if self.whitelist_roles.pop(guild_id_str, None):
+                self._save_json(self.roles_file, self.whitelist_roles)
+            await ctx.send(embed=discord.Embed(
+                title="🗑️ Role Cleared",
+                description="The whitelist management role has been removed for this server.",
+                color=discord.Color.orange()
+            ))
+
     @commands.command(name="whitelist_bot")
+    @commands.guild_only()
     async def whitelist_bot(self, ctx, bot_id: int):
-        
-        if ctx.author.id != self.owner_id:
-            return await ctx.send(
-                embed=discord.Embed(
-                    title="❌ Access Denied",
-                    description=f"Only the bot owner can use this command.",
-                    color=discord.Color.red()
-                )
-            )
+        guild_id_str = str(ctx.guild.id)
+        allowed_role_id = self.whitelist_roles.get(guild_id_str)
+        has_role = any(r.id == allowed_role_id for r in ctx.author.roles) if allowed_role_id else False
+
+        if not (ctx.author.id == self.owner_id or ctx.author == ctx.guild.owner or has_role):
+            return await ctx.send(embed=discord.Embed(
+                title="❌ Access Denied",
+                description="You don't have permission to whitelist bots on this server.",
+                color=discord.Color.red()
+            ))
 
         current_time = time.time()
-        if ctx.author.id in self.whitelist_attempts:
-            attempts, last_attempt = self.whitelist_attempts[ctx.author.id]
-            if current_time - last_attempt < self.ATTEMPT_RESET:
-                if attempts >= self.MAX_ATTEMPTS:
-                    return await ctx.send(
-                        embed=discord.Embed(
-                            title="🚫 Rate Limited",
-                            description=f"Please wait {int(self.ATTEMPT_RESET - (current_time - last_attempt))} seconds",
-                            color=discord.Color.red()
-                        )
-                    )
-                self.whitelist_attempts[ctx.author.id] = (attempts + 1, current_time)
-            else:
-                self.whitelist_attempts[ctx.author.id] = (1, current_time)
+        attempts, last_attempt = self.whitelist_attempts.get(ctx.author.id, (0, 0))
+        if current_time - last_attempt < self.ATTEMPT_RESET:
+            if attempts >= self.MAX_ATTEMPTS:
+                return await ctx.send(embed=discord.Embed(
+                    title="🚫 Rate Limited",
+                    description=f"Please wait {int(self.ATTEMPT_RESET - (current_time - last_attempt))} seconds.",
+                    color=discord.Color.red()
+                ))
+            self.whitelist_attempts[ctx.author.id] = (attempts + 1, current_time)
         else:
             self.whitelist_attempts[ctx.author.id] = (1, current_time)
 
         if not self.validate_bot_id(bot_id):
-            return await ctx.send(
-                embed=discord.Embed(
-                    title="❌ Invalid Bot ID",
-                    description="The provided ID is not a valid Discord bot ID",
-                    color=discord.Color.red()
-                )
-            )
+            return await ctx.send(embed=discord.Embed(
+                title="❌ Invalid Bot ID",
+                description="The provided ID does not appear to be a valid Discord bot ID.",
+                color=discord.Color.red()
+            ))
 
         try:
-           
             bot_user = await self.bot.fetch_user(bot_id)
             if not bot_user.bot:
-                raise ValueError("Provided ID belongs to a user, not a bot")
+                raise ValueError("Provided ID belongs to a user, not a bot.")
             
-            self.bot_whitelist.add(bot_id)
-            self.save_whitelist()
+            guild_whitelist = self.guild_whitelists.get(guild_id_str, set())
+            if bot_id in guild_whitelist:
+                return await ctx.send(embed=discord.Embed(
+                    title="ℹ️ Already Whitelisted",
+                    description=f"**Bot:** {bot_user.name} is already on this server's whitelist.",
+                    color=discord.Color.blue()
+                ))
+
+            guild_whitelist.add(bot_id)
+            self.guild_whitelists[guild_id_str] = guild_whitelist
+            self._save_json(self.whitelists_file, self.guild_whitelists, from_sets=True)
             
-            await ctx.send(
-                embed=discord.Embed(
-                    title="✅ Bot Whitelisted",
-                    description=f"**Bot:** {bot_user.name}\n**ID:** `{bot_id}`\n**Added by:** {ctx.author.mention}",
-                    color=discord.Color.green()
-                ).set_thumbnail(url=bot_user.display_avatar.url)
+            embed = discord.Embed(
+                title="✅ Bot Whitelisted",
+                description=f"**Bot:** {bot_user.name}\n**ID:** `{bot_id}`\n**Added by:** {ctx.author.mention}",
+                color=discord.Color.green()
             )
-            
+            if bot_user.display_avatar: embed.set_thumbnail(url=bot_user.display_avatar.url)
+            await ctx.send(embed=embed)
         except (discord.NotFound, discord.HTTPException, ValueError) as e:
-            await ctx.send(
-                embed=discord.Embed(
-                    title="❌ Verification Failed",
-                    description=str(e),
-                    color=discord.Color.red()
-                )
-            )
+            await ctx.send(embed=discord.Embed(
+                title="❌ Verification Failed",
+                description=str(e),
+                color=discord.Color.red()
+            ))
 
     @commands.command(name="botlogs")
     @commands.has_permissions(administrator=True)
     async def set_bot_logs(self, ctx, channel: discord.TextChannel = None):
-      
         if channel is None:
             if str(ctx.guild.id) in self.bot_log_channels:
                 del self.bot_log_channels[str(ctx.guild.id)]
-                embed = discord.Embed(
-                    title="🤖 Bot Logs Disabled",
-                    description="Bot join logging has been turned off.",
-                    color=discord.Color.red()
-                )
+                embed = discord.Embed(title="🤖 Bot Logs Disabled", description="Bot join logging has been turned off.", color=discord.Color.red())
             else:
-                embed = discord.Embed(
-                    title="ℹ️ No Channel Set",
-                    description="Please specify a channel to enable bot join logging.",
-                    color=discord.Color.blue()
-                )
+                embed = discord.Embed(title="ℹ️ No Channel Set", description="Please specify a channel to enable bot join logging.", color=discord.Color.blue())
         else:
             self.bot_log_channels[str(ctx.guild.id)] = channel.id
-            embed = discord.Embed(
-                title="🤖 Bot Logs Channel Set",
-                description=f"Unauthorized bot joins will be logged in {channel.mention}",
-                color=discord.Color.green()
-            )
-        
+            embed = discord.Embed(title="🤖 Bot Logs Channel Set", description=f"Unauthorized bot joins will be logged in {channel.mention}", color=discord.Color.green())
         await ctx.send(embed=embed)
 
     @commands.command(name="whitelisted")
     @commands.has_permissions(administrator=True)
+    @commands.guild_only()
     async def list_whitelisted(self, ctx):
-        
-        if not self.bot_whitelist:
-            return await ctx.send(
-                embed=discord.Embed(
-                    title="📝 Whitelisted Bots",
-                    description="No bots are currently whitelisted",
-                    color=discord.Color.blue()
-                )
-            )
+        guild_id_str = str(ctx.guild.id)
+        guild_whitelist = self.guild_whitelists.get(guild_id_str, set())
 
-        whitelisted_bots = []
-        for bot_id in self.bot_whitelist:
+        if not guild_whitelist:
+            return await ctx.send(embed=discord.Embed(
+                title=f"📝 Whitelisted Bots in {ctx.guild.name}",
+                description="No bots are currently whitelisted on this server.",
+                color=discord.Color.blue()
+            ))
+
+        bot_details = []
+        for bot_id in guild_whitelist:
             try:
                 bot_user = await self.bot.fetch_user(bot_id)
-                whitelisted_bots.append(f"• {bot_user.name} (`{bot_id}`)")
-            except:
-                whitelisted_bots.append(f"• Unknown Bot (`{bot_id}`)")
+                bot_details.append(f"• {bot_user.name} (`{bot_id}`)")
+            except discord.NotFound:
+                bot_details.append(f"• Unknown Bot (`{bot_id}`)")
+        
+        await ctx.send(embed=discord.Embed(
+            title=f"📝 Whitelisted Bots in {ctx.guild.name}",
+            description="\n".join(bot_details),
+            color=discord.Color.blue()
+        ))
 
-        await ctx.send(
-            embed=discord.Embed(
-                title="📝 Whitelisted Bots",
-                description="\n".join(whitelisted_bots),
-                color=discord.Color.blue()
-            )
-        )
+        
 class PersistentVerifyView(View):
     def __init__(self, role_id=None, button_label="Verify", button_style=discord.ButtonStyle.green):
         super().__init__(timeout=None)
@@ -34505,6 +34443,7 @@ class HelpView(discord.ui.View):
                 "commands": {
                     f"{CMD_PREFIX}botlogs #channel": "Sets the logging channel for unauthorized bot joins",
                     f"{CMD_PREFIX}botlogs": "Disables the bot join logging",
+                    f"{CMD_PREFIX}set_whitelist_role <role>": "Set a role to grant users the power of whitelisting servers on your guild",
                     f"{CMD_PREFIX}whitelisted": "Displays a list of all whitelisted bots with names and IDs",
                     f"{CMD_PREFIX}whitelist_bot <bot_id>": "Adds a bot to the whitelist (Owner Only) | To get a bot's ID: Enable Developer Mode in Discord Settings > App Settings > Advanced, then right-click the bot and select 'Copy ID', or check the bot logs channel when the bot attempts to join"
                 }

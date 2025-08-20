@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 class UpdateChecker(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.version = "V7.9.6"  
+        self.version = "V7.9.7"  
         self.config_path = "data/update_config.json"
         self.update_url = "https://zygnalbot.de/versions/api/update.php"
         self.check_cooldown = timedelta(hours=4)  
